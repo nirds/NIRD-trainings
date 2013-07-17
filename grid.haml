@@ -1,0 +1,84 @@
+!!!
+%head
+  %title NIRDgrid examples
+  %link{:rel => "stylesheet", :href => "grid.css", :type => "text/css"}
+
+%body
+  .writeup
+    %h1.discussion Introduction
+    %p The NIRDgrid uses SASS mixins to generate column-based styles for our webapps, and is designed to accomodate a wide variety of style choices. This grid uses floated elements with carefully designed margins, paddings and widths to position each element in a horizontal column layout.
+    %h2.discussion Some Assumptions about your design
+    %ul.discussion
+      %li You are pretty confidant with the order of elements in your view, and can rearrange your DOM as needed.
+      %li You are not planning on rearranging things on the fly. It is possible, but awkward.
+      %li You are planning on consistent margins around and gutters between your columns.
+    %h2.discussion The mixins
+    %code.mixin
+      :escaped
+        +row( <width of margin in % of browser>, <width of gutter in % of browser> )
+    %p.discussion The row mixin calculates the necessary margins, paddings and widths of a container element so that elements with a column layout can be properly floated within it.
+    %code.mixin
+      :escaped
+        +column( <number of columns in layout>, <number of columns wide this element should be>, <margin %>, <gutter %>, <number of columns element should be pushed left>, <number of columns element should be pushed right> )
+    %p.discussion The column mixin instructs your element to have the right margins and width so that, when floated in the container with the row mixin applied, will naturally pop into the column grid you want. The number of columns in your grid is defined with the first parameter (as an integer), and the width of your element can be specified as an integer multiple of rows. Both default to 1 if you don't input them. The margin % and gutter % should match those used in the row of the parent element. You can also push your element a number of columns to the left or the right (depending on which side you're floating off of) if your design calls for gaps between the content.
+    %h1.discussion Example 1 - the basics
+    %code.example
+      %h2 grid.haml
+      :escaped
+        .ex1_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex1_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 This is the first column
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex1_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 This is the second column
+    %code.example
+      %h2 grid.sass
+      :escaped
+        .ex1_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +row()
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: orange
+      %br
+      :escaped
+        .ex1_col
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +col(2, 1)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %float_left
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          &:nth-of-type(2n)
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          background-color: tan
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+.ex1_row
+  %h1 This is the row element
+  .ex1_col
+    %h1 This is the first column
+  .ex1_col
+    %h1 This is the second column

@@ -1,0 +1,44 @@
+code.example, .ex1_col {
+  float: left; }
+
+.writeup {
+  display: inline-block;
+  margin-left: 0;
+  width: 85%;
+  padding-left: 7.5%;
+  padding-right: 7.5%; }
+
+.discussion {
+  display: block;
+  margin-left: 2.94118%;
+  margin-right: 2.94118%;
+  width: 94.11765%; }
+
+code.mixin {
+  display: block;
+  margin-left: 2.94118%;
+  margin-right: 2.94118%;
+  width: 94.11765%; }
+
+code.example {
+  display: block;
+  margin-left: 2.94118%;
+  margin-right: 2.94118%;
+  width: 44.11765%; }
+
+.ex1_row {
+  display: inline-block;
+  margin-left: 0;
+  width: 100%;
+  padding-left: 0%;
+  padding-right: 0%;
+  background-color: orange; }
+
+.ex1_col {
+  display: block;
+  margin-left: 0%;
+  margin-right: 0%;
+  width: 50%;
+  background-color: grey; }
+  .ex1_col:nth-of-type(2n) {
+    background-color: tan; }

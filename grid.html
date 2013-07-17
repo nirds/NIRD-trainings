@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+  <title>NIRDgrid examples</title>
+  <link href='grid.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class='writeup'>
+    <h1 class='discussion'>Introduction</h1>
+    <p>The NIRDgrid uses SASS mixins to generate column-based styles for our webapps, and is designed to accomodate a wide variety of style choices. This grid uses floated elements with carefully designed margins, paddings and widths to position each element in a horizontal column layout.</p>
+    <h2 class='discussion'>Some Assumptions about your design</h2>
+    <ul class='discussion'>
+      <li>You are pretty confidant with the order of elements in your view, and can rearrange your DOM as needed.</li>
+      <li>You are not planning on rearranging things on the fly. It is possible, but awkward.</li>
+      <li>You are planning on consistent margins around and gutters between your columns.</li>
+    </ul>
+    <h2 class='discussion'>The mixins</h2>
+    <code class='mixin'>+row( &lt;width of margin in % of browser&gt;, &lt;width of gutter in % of browser&gt; )</code>
+    <p class='discussion'>The row mixin calculates the necessary margins, paddings and widths of a container element so that elements with a column layout can be properly floated within it.</p>
+    <code class='mixin'>+column( &lt;number of columns in layout&gt;, &lt;number of columns wide this element should be&gt;, &lt;margin %&gt;, &lt;gutter %&gt;, &lt;number of columns element should be pushed left&gt;, &lt;number of columns element should be pushed right&gt; )</code>
+    <p class='discussion'>The column mixin instructs your element to have the right margins and width so that, when floated in the container with the row mixin applied, will naturally pop into the column grid you want. The number of columns in your grid is defined with the first parameter (as an integer), and the width of your element can be specified as an integer multiple of rows. Both default to 1 if you don't input them. The margin % and gutter % should match those used in the row of the parent element. You can also push your element a number of columns to the left or the right (depending on which side you're floating off of) if your design calls for gaps between the content.</p>
+    <h1 class='discussion'>Example 1 - the basics</h1>
+    <code class='example'><h2>grid.haml</h2>
+    .ex1_row
+    <br>
+    &nbsp;&nbsp;.ex1_col    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 This is the first column    <br>
+    &nbsp;&nbsp;.ex1_col    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 This is the second column</code>
+    <code class='example'><h2>grid.sass</h2>
+    .ex1_row
+    <br>
+    &nbsp;&nbsp;+row()    <br>
+    &nbsp;&nbsp;background-color: orange    <br>
+    .ex1_col
+    <br>
+    &nbsp;&nbsp;+col(2, 1)    <br>
+    &nbsp;&nbsp;@extend %float_left    <br>
+    &nbsp;&nbsp;&amp;:nth-of-type(2n)    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;background-color: tan    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;</code>
+  </div>
+</body>
+<div class='ex1_row'>
+  <h1>This is the row element</h1>
+  <div class='ex1_col'>
+    <h1>This is the first column</h1>
+  </div>
+  <div class='ex1_col'>
+    <h1>This is the second column</h1>
+  </div>
+</div>
