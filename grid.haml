@@ -265,6 +265,49 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
+          .ex3_col
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex3_col
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex3_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          main column
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          .nested
+      %br
+      = precede '&nbsp;' * 6 do
+        :escaped
+          nested
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          .nested
+      %br
+      = precede '&nbsp;' * 6 do
+        :escaped
+          nested
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          .nested
+      %br
+      = precede '&nbsp;' * 6 do
+        :escaped
+          nested
+    %code.example
+      :escaped
+        .ex3_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
           +row(4%, 2%)
       %br
       = precede '&nbsp;' * 2 do
@@ -289,3 +332,22 @@
       = precede '&nbsp;' * 4 do
         :escaped
           background-color: tan
+      %br
+      :escaped
+        .ex3_col
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(4, 1, 5%, 10%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: white
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          &:nth-of-type(2n)
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          background-color: black
