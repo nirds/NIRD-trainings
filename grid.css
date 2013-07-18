@@ -1,12 +1,17 @@
-code.example, .ex1_col {
+.discussion, code.mixin, code.example, .ex1_col, .ex2_col {
   float: left; }
+
+body {
+  margin: 0;
+  width: 100%; }
 
 .writeup {
   display: inline-block;
   margin-left: 0;
   width: 85%;
   padding-left: 7.5%;
-  padding-right: 7.5%; }
+  padding-right: 7.5%;
+  background-color: white; }
 
 .discussion {
   display: block;
@@ -24,7 +29,8 @@ code.example {
   display: block;
   margin-left: 2.94118%;
   margin-right: 2.94118%;
-  width: 44.11765%; }
+  width: 44.11765%;
+  margin-bottom: 1em; }
 
 .ex1_row {
   display: inline-block;
@@ -42,3 +48,33 @@ code.example {
   background-color: grey; }
   .ex1_col:nth-of-type(2n) {
     background-color: tan; }
+
+.ex2_row {
+  display: inline-block;
+  margin-left: 0;
+  width: 100%;
+  padding-left: 0%;
+  padding-right: 0%;
+  background-color: yellow; }
+
+.ex2_col {
+  display: block;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 23.33333%;
+  background-color: grey; }
+  .ex2_col:nth-of-type(2n) {
+    background-color: tan; }
+
+.ex2-1_row {
+  display: inline-block;
+  margin-left: 0;
+  width: 100%;
+  padding-left: 0%;
+  padding-right: 0%;
+  background-color: yellow; }
+  .ex2-1_row h1 {
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%; }

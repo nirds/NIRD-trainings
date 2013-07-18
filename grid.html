@@ -22,6 +22,7 @@
     <code class='example'><h2>grid.haml</h2>
     .ex1_row
     <br>
+    &nbsp;&nbsp;%h1 This is the row element    <br>
     &nbsp;&nbsp;.ex1_col    <br>
     &nbsp;&nbsp;&nbsp;&nbsp;%h1 This is the first column    <br>
     &nbsp;&nbsp;.ex1_col    <br>
@@ -35,17 +36,151 @@
     <br>
     &nbsp;&nbsp;+col(2, 1)    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
+    &nbsp;&nbsp;background-color: grey    <br>
     &nbsp;&nbsp;&amp;:nth-of-type(2n)    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;background-color: tan    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;</code>
+    &nbsp;&nbsp;&nbsp;&nbsp;background-color: tan</code>
+  </div>
+  <div class='ex1_row'>
+    <h1>This is the row element</h1>
+    <div class='ex1_col'>
+      <h1>This is the first column</h1>
+    </div>
+    <div class='ex1_col'>
+      <h1>This is the second column</h1>
+    </div>
+  </div>
+  <div class='writeup'>
+    <h2 class='discussion'>So what's going on?</h2>
+    <p class='discussion'>This example did not specify a margin or width, so they defaulted to zero and the column grid took up the whole page without. The float_left placeholder handles the floating of the elements. Of course the background coloring of the elements has nothing to do with the grid, but it hopefully helped you see what each element was doing.</p>
+    <h1 class='discussion'>Example 2 - What about having too many elements for the row?</h1>
+    <code class='example'><h2>grid.haml</h2>
+    .ex1_row
+    <br>
+    &nbsp;&nbsp;%h1 Row element    <br>
+    &nbsp;&nbsp;.ex1_col    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 First column    <br>
+    &nbsp;&nbsp;.ex1_col    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Third column    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Fourth column    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Second column</code>
+    <code class='example'><h2>grid.sass</h2>
+    .ex1_row
+    <br>
+    &nbsp;&nbsp;+row(5%, 10%)    <br>
+    &nbsp;&nbsp;background-color: orange    <br>
+    .ex1_col
+    <br>
+    &nbsp;&nbsp;+col(3, 1, 5%, 10%)    <br>
+    &nbsp;&nbsp;@extend %float_left    <br>
+    &nbsp;&nbsp;background-color: grey    <br>
+    &nbsp;&nbsp;&amp;:nth-of-type(2n)    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;background-color: tan</code>
+  </div>
+  <div class='ex2_row'>
+    <h1>Row Element</h1>
+    <div class='ex2_col'>
+      <h1>First Column</h1>
+    </div>
+    <div class='ex2_col'>
+      <h1>Second Column</h1>
+    </div>
+    <div class='ex2_col'>
+      <h1>Third Column</h1>
+    </div>
+    <div class='ex2_col'>
+      <h1>Fourth Column</h1>
+    </div>
+  </div>
+  <div class='writeup'>
+    <h2 class='discussion'>Why does the label for row not get any kind of margin?</h2>
+    <p class='discussion'>The row element is helpful for positioning the columns and perhaps carrying a background color, but isn't designed for carrying its own content. In this case, we might apply something like</p>
+    <code class='example'>.ex2_row
+    <br>
+    &nbsp;&nbsp;h1    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;+row(1, 1, 5%, 10%)</code>
+    <h3 class='discussion'>Which would look something like this:</h3>
+  </div>
+  <div class='ex2-1_row'>
+    <h1>Row Element</h1>
+    <div class='ex2_col'>
+      <h1>First Column</h1>
+    </div>
+    <div class='ex2_col'>
+      <h1>Second Column</h1>
+    </div>
+    <div class='ex2_col'>
+      <h1>Third Column</h1>
+    </div>
+    <div class='ex2_col'>
+      <h1>Fourth Column</h1>
+    </div>
+  </div>
+  <div class='writeup'>
+    <h2 class='discussion'>Does this wrapping columns awesomeness still work when the columns are different heights?</h2>
+    <p class='discussion'>Ok, you got me. Here's what happens when you try that:</p>
+  </div>
+  <div class='ex2_row'>
+    <div class='ex2_col'>
+      <h1>First Column</h1>
+      <p>And some text, just to make the world an asymetrical place.</p>
+    </div>
+    <div class='ex2_col'>
+      <h1>Second Column</h1>
+    </div>
+    <div class='ex2_col'>
+      <h1>Third Column</h1>
+    </div>
+    <div class='ex2_col'>
+      <h1>Fourth Column</h1>
+    </div>
+  </div>
+  <div class='writeup'>
+    <p class='discussion'>You are assumed to have control over the layout of your view, so the fix is simple: apply another row:</p>
+  </div>
+  <div class='ex2_row'>
+    <div class='ex2_col'>
+      <h1>First Column</h1>
+      <p>And some text, just to make the world an asymetrical place.</p>
+    </div>
+    <div class='ex2_col'>
+      <h1>Second Column</h1>
+    </div>
+    <div class='ex2_col'>
+      <h1>Third Column</h1>
+    </div>
+  </div>
+  <div class='ex2_row'>
+    <div class='ex2_col'>
+      <h1>Fourth Column</h1>
+    </div>
+  </div>
+  <div class='writeup'>
+    <h1 class='discussion'>What's that 4px air gap between those rows?</h1>
+    <p class='discussion'>It has to do with the rows being display: inline-block. This gap is not actually 4px, it is actually 1 character width (in the parent container's font-size). There are a couple fixes for this, depending on your design needs. If you can specify the font size of every single text elemnt you will use, you can set:</p>
+    <code class='example'>html
+    <br>
+    &nbsp;&nbsp;font-size: 0    <br>
+    h1
+    <br>
+    &nbsp;&nbsp;font-size: 22px    <br>
+    h2
+    <br>
+    &nbsp;&nbsp;font-size: 18px    <br>
+    // And so on</code>
+    <p class='discussion'>If you would rather use the scapel in leu of the sledgehammer, you can apply the following to the offending rows:</p>
+    <code class='example'>.ex2_row
+    <br>
+    &nbsp;&nbsp;margin-bottom: -4px</code>
+    <h1 class='discussion'>What about nesting columns inside other columns?</h1>
+    <code class='example'>.ex3_row
+    <br>
+    &nbsp;&nbsp;+row(4%, 2%)    <br>
+    &nbsp;&nbsp;background-color: green    <br>
+    .ex3_col
+    <br>
+    &nbsp;&nbsp;+column(4, 1, 4%, 2%)    <br>
+    &nbsp;&nbsp;background-color: grey    <br>
+    &nbsp;&nbsp;&amp;:nth-of-type(2n)    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;background-color: tan</code>
   </div>
 </body>
-<div class='ex1_row'>
-  <h1>This is the row element</h1>
-  <div class='ex1_col'>
-    <h1>This is the first column</h1>
-  </div>
-  <div class='ex1_col'>
-    <h1>This is the second column</h1>
-  </div>
-</div>

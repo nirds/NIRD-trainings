@@ -21,11 +21,16 @@
       :escaped
         +column( <number of columns in layout>, <number of columns wide this element should be>, <margin %>, <gutter %>, <number of columns element should be pushed left>, <number of columns element should be pushed right> )
     %p.discussion The column mixin instructs your element to have the right margins and width so that, when floated in the container with the row mixin applied, will naturally pop into the column grid you want. The number of columns in your grid is defined with the first parameter (as an integer), and the width of your element can be specified as an integer multiple of rows. Both default to 1 if you don't input them. The margin % and gutter % should match those used in the row of the parent element. You can also push your element a number of columns to the left or the right (depending on which side you're floating off of) if your design calls for gaps between the content.
+
     %h1.discussion Example 1 - the basics
     %code.example
       %h2 grid.haml
       :escaped
         .ex1_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          %h1 This is the row element
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -68,17 +73,219 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
+          background-color: grey
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
           &:nth-of-type(2n)
       %br
       = precede '&nbsp;' * 4 do
         :escaped
           background-color: tan
+  .ex1_row
+    %h1 This is the row element
+    .ex1_col
+      %h1 This is the first column
+    .ex1_col
+      %h1 This is the second column
+  .writeup
+    %h2.discussion So what's going on?
+    %p.discussion This example did not specify a margin or width, so they defaulted to zero and the column grid took up the whole page without. The float_left placeholder handles the floating of the elements. Of course the background coloring of the elements has nothing to do with the grid, but it hopefully helped you see what each element was doing.
+
+    %h1.discussion Example 2 - What about having too many elements for the row?
+    %code.example
+      %h2 grid.haml
+      :escaped
+        .ex1_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          %h1 Row element
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex1_col
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-.ex1_row
-  %h1 This is the row element
-  .ex1_col
-    %h1 This is the first column
-  .ex1_col
-    %h1 This is the second column
+          %h1 First column
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex1_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 Third column
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 Fourth column
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 Second column
+    %code.example
+      %h2 grid.sass
+      :escaped
+        .ex1_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +row(5%, 10%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: orange
+      %br
+      :escaped
+        .ex1_col
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +col(3, 1, 5%, 10%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %float_left
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: grey
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          &:nth-of-type(2n)
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          background-color: tan
+  .ex2_row
+    %h1 Row Element
+    .ex2_col
+      %h1 First Column
+    .ex2_col
+      %h1 Second Column
+    .ex2_col
+      %h1 Third Column
+    .ex2_col
+      %h1 Fourth Column
+
+  .writeup
+    %h2.discussion Why does the label for row not get any kind of margin?
+    %p.discussion The row element is helpful for positioning the columns and perhaps carrying a background color, but isn't designed for carrying its own content. In this case, we might apply something like
+    %code.example
+      :escaped
+        .ex2_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          h1
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          +row(1, 1, 5%, 10%)
+    %h3.discussion Which would look something like this:
+  .ex2-1_row
+    %h1 Row Element
+    .ex2_col
+      %h1 First Column
+    .ex2_col
+      %h1 Second Column
+    .ex2_col
+      %h1 Third Column
+    .ex2_col
+      %h1 Fourth Column
+  .writeup
+    %h2.discussion Does this wrapping columns awesomeness still work when the columns are different heights?
+    %p.discussion Ok, you got me. Here's what happens when you try that:
+  .ex2_row
+    .ex2_col
+      %h1 First Column
+      %p And some text, just to make the world an asymetrical place.
+    .ex2_col
+      %h1 Second Column
+    .ex2_col
+      %h1 Third Column
+    .ex2_col
+      %h1 Fourth Column
+  .writeup
+    %p.discussion You are assumed to have control over the layout of your view, so the fix is simple: apply another row:
+  .ex2_row
+    .ex2_col
+      %h1 First Column
+      %p And some text, just to make the world an asymetrical place.
+    .ex2_col
+      %h1 Second Column
+    .ex2_col
+      %h1 Third Column
+  .ex2_row
+    .ex2_col
+      %h1 Fourth Column
+  .writeup
+    %h1.discussion What's that 4px air gap between those rows?
+    %p.discussion It has to do with the rows being display: inline-block. This gap is not actually 4px, it is actually 1 character width (in the parent container's font-size). There are a couple fixes for this, depending on your design needs. If you can specify the font size of every single text elemnt you will use, you can set:
+    %code.example
+      :escaped
+        html
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          font-size: 0
+      %br
+      :escaped
+        h1
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          font-size: 22px
+      %br
+      :escaped
+        h2
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          font-size: 18px
+      %br
+      :escaped
+        // And so on
+    %p.discussion If you would rather use the scapel in leu of the sledgehammer, you can apply the following to the offending rows:
+    %code.example
+      :escaped
+        .ex2_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          margin-bottom: -4px
+
+    %h1.discussion What about nesting columns inside other columns?
+    %code.example
+      :escaped
+        .ex3_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +row(4%, 2%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: green
+      %br
+      :escaped
+        .ex3_col
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(4, 1, 4%, 2%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: grey
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          &:nth-of-type(2n)
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          background-color: tan

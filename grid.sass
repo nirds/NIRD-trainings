@@ -64,18 +64,25 @@
 $margin: 10%
 $gutter: 5%
 
+body
+  margin: 0
+  width: 100%
+
 .writeup
   +row($margin, $gutter)
-
+  background-color: white
 .discussion
   +column(1, 1, $margin, $gutter)
+  @extend %float_left
 
 code.mixin
   +column(1, 1, $margin, $gutter)
+  @extend %float_left
 
 code.example
   +column(2, 1, $margin, $gutter)
   @extend %float_left
+  margin-bottom: 1em
 
 //Example 1 - 2 column layout, no margins or gutters
 .ex1_row
@@ -87,3 +94,20 @@ code.example
   background-color: grey
   &:nth-of-type(2n)
     background-color: tan
+
+//Example 2 - Three column layout, 5% margin, 10% gutter, with an additional element in the row.
+.ex2_row
+  +row(5%, 10%)
+  background-color: yellow
+.ex2_col
+  +column(3, 1, 5%, 10%)
+  @extend %float_left
+  background-color: grey
+  &:nth-of-type(2n)
+    background-color: tan
+
+.ex2-1_row
+  +row(5%, 10%)
+  background-color: yellow
+  h1
+    +column(1, 1, 5%, 10%)
