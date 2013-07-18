@@ -111,3 +111,27 @@ code.example
   background-color: yellow
   h1
     +column(1, 1, 5%, 10%)
+
+//Example 3 - Four column layout with three column layout nested elements.
+.ex3_row
+  +row(8%, 4%)
+  background-color: green
+.ex3_col
+  +column(4, 1, 8%, 4%)
+  @extend %float_left
+  background-color: grey
+  &:nth-of-type(2n)
+    background-color: tan
+h1
+  +column(1, 1, 0%, 0%)
+  @extend %float_left
+.ex3_nest_row
+  +row(10%, 5%)
+.ex3_nest
+  +column(3, 1, 10%, 5%)
+  @extend %float_left
+  color: red
+  background-color: grey
+  &:nth-of-type(2n)
+    background-color: black
+

@@ -1,4 +1,4 @@
-.discussion, code.mixin, code.example, .ex1_col, .ex2_col {
+.discussion, code.mixin, code.example, .ex1_col, .ex2_col, .ex3_col, h1, .ex3_nest {
   float: left; }
 
 body {
@@ -78,3 +78,43 @@ code.example {
     margin-left: 5%;
     margin-right: 5%;
     width: 90%; }
+
+.ex3_row {
+  display: inline-block;
+  margin-left: 0;
+  width: 88%;
+  padding-left: 6%;
+  padding-right: 6%;
+  background-color: green; }
+
+.ex3_col {
+  display: block;
+  margin-left: 2.27273%;
+  margin-right: 2.27273%;
+  width: 20.45455%;
+  background-color: grey; }
+  .ex3_col:nth-of-type(2n) {
+    background-color: tan; }
+
+h1 {
+  display: block;
+  margin-left: 0%;
+  margin-right: 0%;
+  width: 100%; }
+
+.ex3_nest_row {
+  display: inline-block;
+  margin-left: 0;
+  width: 85%;
+  padding-left: 7.5%;
+  padding-right: 7.5%; }
+
+.ex3_nest {
+  display: block;
+  margin-left: 2.94118%;
+  margin-right: 2.94118%;
+  width: 27.45098%;
+  color: red;
+  background-color: grey; }
+  .ex3_nest:nth-of-type(2n) {
+    background-color: black; }

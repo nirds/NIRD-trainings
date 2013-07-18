@@ -258,50 +258,67 @@
         :escaped
           margin-bottom: -4px
 
-    %h1.discussion What about nesting columns inside other columns?
+    %h1.discussion Example 3 - nesting columns inside other columns
     %code.example
       :escaped
         .ex3_row
       %br
-      = precede '&nbsp;' * 2 do
-        :escaped
-          .ex3_col
-      %br
-      = precede '&nbsp;' * 2 do
-        :escaped
-          .ex3_col
-      %br
+
       = precede '&nbsp;' * 2 do
         :escaped
           .ex3_col
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          main column
+          %h1 Second column
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex3_col
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          .nested
-      %br
-      = precede '&nbsp;' * 6 do
-        :escaped
-          nested
+          %h1 Main column
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          .nested
+          .ex3_nest
       %br
       = precede '&nbsp;' * 6 do
         :escaped
-          nested
+          Nested
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          .nested
+          .ex3_nest
       %br
       = precede '&nbsp;' * 6 do
         :escaped
-          nested
+          Nested
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          .ex3_nest
+      %br
+      = precede '&nbsp;' * 6 do
+        :escaped
+          Nested
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex3_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 Third column
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex3_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 Fourth column
     %code.example
       :escaped
         .ex3_row
@@ -323,6 +340,10 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
+          @extend %float_left
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
           background-color: grey
       %br
       = precede '&nbsp;' * 2 do
@@ -334,15 +355,34 @@
           background-color: tan
       %br
       :escaped
-        .ex3_col
+        %h1
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          +column(4, 1, 5%, 10%)
+          +column(1, 1, 0%, 0%)
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: white
+          @extend %float_left
+      %br
+      :escaped
+        .ex3_nest
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(3, 1, 0%, 0%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %float_left
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          color: red
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: grey
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -351,3 +391,35 @@
       = precede '&nbsp;' * 4 do
         :escaped
           background-color: black
+  .ex3_row
+    .ex3_col
+      %h1 First Column
+    .ex3_col
+      %h1 Main column
+      .ex3_nest
+        Nested
+      .ex3_nest
+        Nested
+      .ex3_nest
+        Nested
+    .ex3_col
+      %h1 Third Column
+    .ex3_col
+      %h1 Fourth Column
+  .ex3_row
+    .ex3_col
+      %h1 First Column
+    .ex3_col
+      %h1 Main column
+      .container
+        .ex3_nest_row
+          .ex3_nest
+            Nested
+          .ex3_nest
+            Nested
+          .ex3_nest
+            Nested
+    .ex3_col
+      %h1 Third Column
+    .ex3_col
+      %h1 Fourth Column

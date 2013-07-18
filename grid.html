@@ -171,19 +171,23 @@
     <code class='example'>.ex2_row
     <br>
     &nbsp;&nbsp;margin-bottom: -4px</code>
-    <h1 class='discussion'>What about nesting columns inside other columns?</h1>
+    <h1 class='discussion'>Example 3 - nesting columns inside other columns</h1>
     <code class='example'>.ex3_row
     <br>
     &nbsp;&nbsp;.ex3_col    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Second column    <br>
     &nbsp;&nbsp;.ex3_col    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Main column    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;.ex3_nest    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nested    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;.ex3_nest    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nested    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;.ex3_nest    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nested    <br>
     &nbsp;&nbsp;.ex3_col    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;main column    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;.nested    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nested    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;.nested    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nested    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;.nested    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nested</code>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Third column    <br>
+    &nbsp;&nbsp;.ex3_col    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Fourth column</code>
     <code class='example'>.ex3_row
     <br>
     &nbsp;&nbsp;+row(4%, 2%)    <br>
@@ -191,14 +195,71 @@
     .ex3_col
     <br>
     &nbsp;&nbsp;+column(4, 1, 4%, 2%)    <br>
+    &nbsp;&nbsp;@extend %float_left    <br>
     &nbsp;&nbsp;background-color: grey    <br>
     &nbsp;&nbsp;&amp;:nth-of-type(2n)    <br>
     &nbsp;&nbsp;&nbsp;&nbsp;background-color: tan    <br>
-    .ex3_col
+    %h1
     <br>
-    &nbsp;&nbsp;+column(4, 1, 5%, 10%)    <br>
-    &nbsp;&nbsp;background-color: white    <br>
+    &nbsp;&nbsp;+column(1, 1, 0%, 0%)    <br>
+    &nbsp;&nbsp;@extend %float_left    <br>
+    .ex3_nest
+    <br>
+    &nbsp;&nbsp;+column(3, 1, 0%, 0%)    <br>
+    &nbsp;&nbsp;@extend %float_left    <br>
+    &nbsp;&nbsp;color: red    <br>
+    &nbsp;&nbsp;background-color: grey    <br>
     &nbsp;&nbsp;&amp;:nth-of-type(2n)    <br>
     &nbsp;&nbsp;&nbsp;&nbsp;background-color: black</code>
+  </div>
+  <div class='ex3_row'>
+    <div class='ex3_col'>
+      <h1>First Column</h1>
+    </div>
+    <div class='ex3_col'>
+      <h1>Main column</h1>
+      <div class='ex3_nest'>
+        Nested
+      </div>
+      <div class='ex3_nest'>
+        Nested
+      </div>
+      <div class='ex3_nest'>
+        Nested
+      </div>
+    </div>
+    <div class='ex3_col'>
+      <h1>Third Column</h1>
+    </div>
+    <div class='ex3_col'>
+      <h1>Fourth Column</h1>
+    </div>
+  </div>
+  <div class='ex3_row'>
+    <div class='ex3_col'>
+      <h1>First Column</h1>
+    </div>
+    <div class='ex3_col'>
+      <h1>Main column</h1>
+      <div class='container'>
+        <div class='ex3_nest_row'>
+          <div class='ex3_nest'>
+            Nested
+          </div>
+          <div class='ex3_nest'>
+            Nested
+          </div>
+          <div class='ex3_nest'>
+            Nested
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='ex3_col'>
+      <h1>Third Column</h1>
+    </div>
+    <div class='ex3_col'>
+      <h1>Fourth Column</h1>
+    </div>
   </div>
 </body>
