@@ -166,10 +166,8 @@
   </div>
   <div class='writeup'>
     <h2 class='discussion'>What's that 4px air gap between those rows?</h2>
-    <p class='discussion'>It has to do with the rows being display: inline-block. This gap is not actually 4px, it is actually 1 character width (in the parent container's font-size). There are a couple fixes for this, depending on your design needs. If you can specify the font size of every single text elemnt you will use, you can set:</p>
+    <p class='discussion'>It has to do with the rows being display: inline-block with floated content within them. This gap is not actually 4px, it is actually 1 character width (in the parent container's font-size). There are a couple fixes for this, depending on your design needs. If you can specify the font size of every single text elemnt you will use, you can set:</p>
     <code class='example'><h2>grid.sass</h2>
-    @import &quot;NIRDgrid&quot;
-    <br>
     <br>
     html
     <br>
@@ -183,8 +181,6 @@
     // And so on</code>
     <p class='discussion'>If you would rather use the scapel in leu of the sledgehammer, you can apply the following to the offending rows:</p>
     <code class='example'><h2>grid.sass</h2>
-    @import &quot;NIRDgrid&quot;
-    <br>
     <br>
     .ex2_row
     <br>
@@ -342,6 +338,8 @@
     &nbsp;&nbsp;.ex5_col-6_push-3    <br>
     &nbsp;&nbsp;&nbsp;&nbsp;%h1 This is in the center of the page    <br>
     <br>
+    .ex5_row
+    <br>
     &nbsp;&nbsp;- (1..12).each do    <br>
     &nbsp;&nbsp;&nbsp;&nbsp;.ex5_col-1    <br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%h2 Col</code>
@@ -360,7 +358,7 @@
     .ex5_col-1
     <br>
     <br>
-    <!-- /Reference columns -->
+    //Reference columns
     <br>
     &nbsp;&nbsp;+column(12, 1, 5%, 1%)    <br>
     &nbsp;&nbsp;background-color: white</code>
@@ -407,5 +405,117 @@
     <div class='ex5_col-1'>
       <h2>Col</h2>
     </div>
+  </div>
+  <div class='writeup'>
+    <h2 class='discussion'>Why isn't there an air-gap here?</h2>
+    <p class='discussion'>You will notice that the element was not actually floated. The consequence of this is that the rows are not forced apart.</p>
+    <h1 class='discussion'>Example 6 - Borders and element internal padding</h1>
+    <p class='discussion'>This case prettymuch handles all the advanced options available. Some of the elements have borders, others have internal padding. Both cases require %box to keep the math right.</p>
+    <code class='example'><h2>grid.haml</h2>
+    .ex6_row
+    <br>
+    &nbsp;&nbsp;.ex6_col-2    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 On the left    <br>
+    &nbsp;&nbsp;.ex6_col-3_push-2    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Pushed 2 from the left    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%p 10px padding on both sides    <br>
+    &nbsp;&nbsp;.ex6_col-3_push-1_right    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Pushed from the right    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%p With 15px padding    <br>
+    <br>
+    .ex6_row
+    <br>
+    &nbsp;&nbsp;- (1..12).each do    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;.ex5_col-1    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%h2 Col</code>
+    <code class='example'><h2>grid.sass</h2>
+    @import &quot;NIRDgrid&quot;
+    <br>
+    <br>
+    .ex6_row
+    <br>
+    &nbsp;&nbsp;+row(3%, 1%)    <br>
+    &nbsp;&nbsp;background-color: lightgray    <br>
+    .ex6_col-2
+    <br>
+    &nbsp;&nbsp;+column(12, 2, 3%, 1%)    <br>
+    &nbsp;&nbsp;@extend %box    <br>
+    &nbsp;&nbsp;@extend %float_left    <br>
+    &nbsp;&nbsp;border: solid black 1px    <br>
+    .ex6_col-3_push-2
+    <br>
+    &nbsp;&nbsp;+column(12, 3, 3%, 1%, 2)    <br>
+    &nbsp;&nbsp;@extend %box    <br>
+    &nbsp;&nbsp;@extend %float_left    <br>
+    &nbsp;&nbsp;background-color: tan    <br>
+    &nbsp;&nbsp;padding: 10px 10px    <br>
+    .ex6_col-3_push-1_right
+    <br>
+    &nbsp;&nbsp;+column(12, 3, 3%, 1%, 0, 1)    <br>
+    &nbsp;&nbsp;@extend %box    <br>
+    &nbsp;&nbsp;@extend %float_right    <br>
+    &nbsp;&nbsp;border: solid red 5px    <br>
+    &nbsp;&nbsp;padding: 15px 15px    <br>
+    .ex6_col-1
+    <br>
+    &nbsp;&nbsp;+column(12, 1, 3%, 1%)    <br>
+    &nbsp;&nbsp;background-color: white    <br>
+    &nbsp;&nbsp;@extend %float_left    <br>
+    &nbsp;&nbsp;@extend %box</code>
+  </div>
+  <div class='ex6_row'>
+    <div class='ex6_col-2'>
+      <h1>On the left</h1>
+    </div>
+    <div class='ex6_col-3_push-2'>
+      <h1>Pushed 2 from the left</h1>
+      <p>10px padding on both sides</p>
+    </div>
+    <div class='ex6_col-3_push-1_right'>
+      <h1>Pushed from the right</h1>
+      <p>With 15px padding</p>
+    </div>
+  </div>
+  <div class='ex6_row'>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+  </div>
+  <div class='writeup'>
+    <h2 class='discussion'>How come the right edge of the red border doesn't perfectly align with the right edge of the column below it?</h2>
+    <p class='discussion'>Its not recommended that you use much %float_right, because browsers don't perfectly calculate the number of pixels of elements sized in percentages. You will find this to be more or less of an issue, depending on your design and your browser support, but floating your element to the right makes a big change in the pixel math that may be quite unattractive. Use the right floating and right pushing features with caution!</p>
   </div>
 </body>

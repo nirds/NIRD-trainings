@@ -103,8 +103,35 @@ code.example
 .ex5_col-6_push-3
   +column(12, 6, 5%, 1%, 3, 0)
   background-color: tan
-  @extend %float_left
 .ex5_col-1
   +column(12, 1, 5%, 1%)
+  @extend %float_left
+  background-color: white
+
+
+//Example 6 - Twelve column layout with much pushing and strange alignment, and some borders and element padding
+.ex6_row
+  +row(3%, 1%)
+  background-color: lightgray
+.ex6_col-2
+  +column(12, 2, 3%, 1%)
+  @extend %box
+  @extend %float_left
+  border: solid black 1px
+.ex6_col-3_push-2
+  +column(12, 3, 3%, 1%, 2)
+  @extend %box
+  @extend %float_left
+  background-color: tan
+  padding: 10px 10px
+.ex6_col-3_push-1_right
+  +column(12, 3, 3%, 1%, 0, 1)
+  @extend %box
+  @extend %float_right
+  border: solid red 5px
+  padding: 15px 15px
+.ex6_col-1
+  +column(12, 1, 3%, 1%)
   background-color: white
   @extend %float_left
+  @extend %box

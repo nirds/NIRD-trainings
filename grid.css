@@ -1,5 +1,13 @@
-.discussion, code.mixin, code.example, .ex1_col, .ex2_col, .ex3_col, .ex3_col h1, .ex3_nest, .ex4_col_small, .ex4_col_medium, .ex4_col_large, .ex4_col_huge, .ex5_col-6_push-3, .ex5_col-1 {
+.ex6_col-2, .ex6_col-3_push-2, .ex6_col-3_push-1_right, .ex6_col-1 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.discussion, code.mixin, code.example, .ex1_col, .ex2_col, .ex3_col, .ex3_col h1, .ex3_nest, .ex4_col_small, .ex4_col_medium, .ex4_col_large, .ex4_col_huge, .ex5_col-1, .ex6_col-2, .ex6_col-3_push-2, .ex6_col-1 {
   float: left; }
+
+.ex6_col-3_push-1_right {
+  float: right; }
 
 body {
   margin: 0;
@@ -174,4 +182,42 @@ code.example {
   margin-left: 0.54945%;
   margin-right: 0.54945%;
   width: 7.23443%;
+  background-color: white; }
+
+.ex6_row {
+  display: inline-block;
+  margin-left: 0;
+  width: 95%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  background-color: lightgrey; }
+
+.ex6_col-2 {
+  display: block;
+  margin-left: 0.52632%;
+  margin-right: 0.52632%;
+  width: 15.61404%;
+  border: solid black 1px; }
+
+.ex6_col-3_push-2 {
+  display: block;
+  margin-left: 17.19298%;
+  margin-right: 0.52632%;
+  width: 23.94737%;
+  background-color: tan;
+  padding: 10px 10px; }
+
+.ex6_col-3_push-1_right {
+  display: block;
+  margin-left: 0.52632%;
+  margin-right: 8.85965%;
+  width: 23.94737%;
+  border: solid red 5px;
+  padding: 15px 15px; }
+
+.ex6_col-1 {
+  display: block;
+  margin-left: 0.52632%;
+  margin-right: 0.52632%;
+  width: 7.2807%;
   background-color: white; }

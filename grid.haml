@@ -237,12 +237,9 @@
       %h2 Fourth Column
   .writeup
     %h2.discussion What's that 4px air gap between those rows?
-    %p.discussion It has to do with the rows being display: inline-block. This gap is not actually 4px, it is actually 1 character width (in the parent container's font-size). There are a couple fixes for this, depending on your design needs. If you can specify the font size of every single text elemnt you will use, you can set:
+    %p.discussion It has to do with the rows being display: inline-block with floated content within them. This gap is not actually 4px, it is actually 1 character width (in the parent container's font-size). There are a couple fixes for this, depending on your design needs. If you can specify the font size of every single text elemnt you will use, you can set:
     %code.example
       %h2 grid.sass
-      :escaped
-        @import "NIRDgrid"
-      %br
       %br
       :escaped
         html
@@ -270,9 +267,6 @@
     %p.discussion If you would rather use the scapel in leu of the sledgehammer, you can apply the following to the offending rows:
     %code.example
       %h2 grid.sass
-      :escaped
-        @import "NIRDgrid"
-      %br
       %br
       :escaped
         .ex2_row
@@ -280,7 +274,6 @@
       = precede '&nbsp;' * 2 do
         :escaped
           margin-bottom: -4px
-
     %h1.discussion Example 3 - nesting columns inside other columns
     %code.example
       %h2 grid.haml
@@ -595,6 +588,9 @@
           %h1 This is in the center of the page
       %br
       %br
+      :escaped
+        .ex5_row
+      %br
       = precede '&nbsp;' * 2 do
         :escaped
           - (1..12).each do
@@ -636,7 +632,8 @@
         .ex5_col-1
       %br
       %br
-      //Reference columns
+      :escaped
+        //Reference columns
       %br
       = precede '&nbsp;' * 2 do
         +column(12, 1, 5%, 1%)
@@ -651,3 +648,177 @@
     - (1..12).each do
       .ex5_col-1
         %h2 Col
+  .writeup
+    %h2.discussion Why isn't there an air-gap here?
+    %p.discussion You will notice that the element was not actually floated. The consequence of this is that the rows are not forced apart.
+    %h1.discussion Example 6 - Borders and element internal padding
+    %p.discussion This case prettymuch handles all the advanced options available. Some of the elements have borders, others have internal padding. Both cases require %box to keep the math right.
+    %code.example
+      %h2 grid.haml
+      :escaped
+        .ex6_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex6_col-2
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 On the left
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex6_col-3_push-2
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 Pushed 2 from the left
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %p 10px padding on both sides
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex6_col-3_push-1_right
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 Pushed from the right
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %p With 15px padding
+      %br
+      %br
+      :escaped
+        .ex6_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          - (1..12).each do
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          .ex5_col-1
+      %br
+      = precede '&nbsp;' * 6 do
+        :escaped
+          %h2 Col
+    %code.example
+      %h2 grid.sass
+      :escaped
+        @import "NIRDgrid"
+      %br
+      %br
+      :escaped
+        .ex6_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +row(3%, 1%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: lightgray
+      %br
+      :escaped
+        .ex6_col-2
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(12, 2, 3%, 1%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %box
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %float_left
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          border: solid black 1px
+      %br
+      :escaped
+        .ex6_col-3_push-2
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(12, 3, 3%, 1%, 2)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %box
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %float_left
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: tan
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          padding: 10px 10px
+      %br
+      :escaped
+        .ex6_col-3_push-1_right
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(12, 3, 3%, 1%, 0, 1)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %box
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %float_right
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          border: solid red 5px
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          padding: 15px 15px
+      %br
+      :escaped
+        .ex6_col-1
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(12, 1, 3%, 1%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: white
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %float_left
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %box
+  .ex6_row 
+    .ex6_col-2 
+      %h1 On the left 
+    .ex6_col-3_push-2 
+      %h1 Pushed 2 from the left 
+      %p 10px padding on both sides 
+    .ex6_col-3_push-1_right 
+      %h1 Pushed from the right 
+      %p With 15px padding 
+
+  .ex6_row 
+    - (1..12).each do 
+      .ex5_col-1 
+        %h2 Col
+  .writeup
+    %h2.discussion How come the right edge of the red border doesn't perfectly align with the right edge of the column below it?
+    %p.discussion Its not recommended that you use much %float_right, because browsers don't perfectly calculate the number of pixels of elements sized in percentages. You will find this to be more or less of an issue, depending on your design and your browser support, but floating your element to the right makes a big change in the pixel math that may be quite unattractive. Use the right floating and right pushing features with caution!
