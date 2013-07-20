@@ -1,0 +1,63 @@
+=row($margin: 0%, $gutter: 0%)
+  display : inline-block
+
+  //The calculations below contextually translate inputs for the end user
+  //Page context is what a user would see
+  //Row context is where the math is most convenient
+  //Trimmed row context is what the CSS understands.
+  $margin_page : min($margin - $gutter / 2, 0)
+  $padding_page : $margin - $gutter / 2
+  $width_page : 100% - $margin_page
+  $page_to_row : 100% / $width_page
+  $padding_row : $padding_page * $page_to_row
+  $width_row : $width_page * $page_to_row - 2 * $padding_row
+  $trimmed_page : $width_row / $page_to_row
+
+  margin:
+    left : $margin_page
+  width : $trimmed_page
+  padding:
+    left : $padding_row
+    right : $padding_row
+
+=column($number_columns: 1, $columns_wide: 1, $margin: 0%, $gutter: 0%, $push_columns_left: 0, $push_columns_right: 0)
+  display : block
+
+  $margin_page : min($margin - $gutter / 2, 0)
+  $padding_page : $margin - $gutter / 2
+  $width_page : 100% - $margin_page
+  $page_to_row : 100% / $width_page
+  $padding_row : $padding_page * $page_to_row
+  $width_row : $width_page * $page_to_row - 2 * $padding_row
+  $trimmed_page : $width_row / $page_to_row
+
+  $page_to_trimmed : 100% / $trimmed_page
+
+  $margin_trimmed : $gutter / 2 * $page_to_trimmed
+
+  $added_columns : $number_columns - 1
+  $column_width_page : (100% - 2 * $margin - $added_columns * $gutter) / ($added_columns + 1)
+  $multiple_column_page : $columns_wide * $column_width_page + ($columns_wide - 1) * $gutter
+  
+  $column_width_trimmed: $column_width_page * $page_to_trimmed
+  $multiple_column_width_trimmed : $multiple_column_page * $page_to_trimmed
+
+  $left_pushed_trimmed : $push_columns_left / $columns_wide * ($multiple_column_width_trimmed + 2 * $margin_trimmed) + $margin_trimmed
+
+  $right_pushed_trimmed : $push_columns_right / $columns_wide * ($multiple_column_width_trimmed + 2 * $margin_trimmed) + $margin_trimmed
+
+  margin:
+    left : $left_pushed_trimmed
+    right : $right_pushed_trimmed
+  width : $multiple_column_width_trimmed
+
+%box
+  -webkit-box-sizing : border-box
+  -moz-box-sizing : border-box
+  box-sizing : border-box
+
+%float_left
+  float: left
+
+%float_right
+  float: right

@@ -24,10 +24,13 @@
     <br>
     &nbsp;&nbsp;%h1 This is the row element    <br>
     &nbsp;&nbsp;.ex1_col    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;%h1 This is the first column    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h2 This is the first column    <br>
     &nbsp;&nbsp;.ex1_col    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;%h1 This is the second column</code>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h2 This is the second column</code>
     <code class='example'><h2>grid.sass</h2>
+    @import &quot;NIRDgrid&quot;
+    <br>
+    <br>
     .ex1_row
     <br>
     &nbsp;&nbsp;+row()    <br>
@@ -43,10 +46,10 @@
   <div class='ex1_row'>
     <h1>This is the row element</h1>
     <div class='ex1_col'>
-      <h1>This is the first column</h1>
+      <h2>This is the first column</h2>
     </div>
     <div class='ex1_col'>
-      <h1>This is the second column</h1>
+      <h2>This is the second column</h2>
     </div>
   </div>
   <div class='writeup'>
@@ -58,12 +61,15 @@
     <br>
     &nbsp;&nbsp;%h1 Row element    <br>
     &nbsp;&nbsp;.ex1_col    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;%h1 First column    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h2 First column    <br>
     &nbsp;&nbsp;.ex1_col    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Third column    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Fourth column    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Second column</code>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h2 Third column    <br>
+    &nbsp;&nbsp;.ex1_col    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h2 Fourth column</code>
     <code class='example'><h2>grid.sass</h2>
+    @import &quot;NIRDgrid&quot;
+    <br>
+    <br>
     .ex1_row
     <br>
     &nbsp;&nbsp;+row(5%, 10%)    <br>
@@ -79,22 +85,26 @@
   <div class='ex2_row'>
     <h1>Row Element</h1>
     <div class='ex2_col'>
-      <h1>First Column</h1>
+      <h2>First Column</h2>
     </div>
     <div class='ex2_col'>
-      <h1>Second Column</h1>
+      <h2>Second Column</h2>
     </div>
     <div class='ex2_col'>
-      <h1>Third Column</h1>
+      <h2>Third Column</h2>
     </div>
     <div class='ex2_col'>
-      <h1>Fourth Column</h1>
+      <h2>Fourth Column</h2>
     </div>
   </div>
   <div class='writeup'>
     <h2 class='discussion'>Why does the label for row not get any kind of margin?</h2>
     <p class='discussion'>The row element is helpful for positioning the columns and perhaps carrying a background color, but isn't designed for carrying its own content. In this case, we might apply something like</p>
-    <code class='example'>.ex2_row
+    <code class='example'><h2>grid.sass</h2>
+    @import &quot;NIRDgrid&quot;
+    <br>
+    <br>
+    .ex2_row
     <br>
     &nbsp;&nbsp;h1    <br>
     &nbsp;&nbsp;&nbsp;&nbsp;+row(1, 1, 5%, 10%)</code>
@@ -103,16 +113,16 @@
   <div class='ex2-1_row'>
     <h1>Row Element</h1>
     <div class='ex2_col'>
-      <h1>First Column</h1>
+      <h2>First Column</h2>
     </div>
     <div class='ex2_col'>
-      <h1>Second Column</h1>
+      <h2>Second Column</h2>
     </div>
     <div class='ex2_col'>
-      <h1>Third Column</h1>
+      <h2>Third Column</h2>
     </div>
     <div class='ex2_col'>
-      <h1>Fourth Column</h1>
+      <h2>Fourth Column</h2>
     </div>
   </div>
   <div class='writeup'>
@@ -121,17 +131,17 @@
   </div>
   <div class='ex2_row'>
     <div class='ex2_col'>
-      <h1>First Column</h1>
+      <h2>First Column</h2>
       <p>And some text, just to make the world an asymetrical place.</p>
     </div>
     <div class='ex2_col'>
-      <h1>Second Column</h1>
+      <h2>Second Column</h2>
     </div>
     <div class='ex2_col'>
-      <h1>Third Column</h1>
+      <h2>Third Column</h2>
     </div>
     <div class='ex2_col'>
-      <h1>Fourth Column</h1>
+      <h2>Fourth Column</h2>
     </div>
   </div>
   <div class='writeup'>
@@ -139,25 +149,29 @@
   </div>
   <div class='ex2_row'>
     <div class='ex2_col'>
-      <h1>First Column</h1>
+      <h2>First Column</h2>
       <p>And some text, just to make the world an asymetrical place.</p>
     </div>
     <div class='ex2_col'>
-      <h1>Second Column</h1>
+      <h2>Second Column</h2>
     </div>
     <div class='ex2_col'>
-      <h1>Third Column</h1>
+      <h2>Third Column</h2>
     </div>
   </div>
   <div class='ex2_row'>
     <div class='ex2_col'>
-      <h1>Fourth Column</h1>
+      <h2>Fourth Column</h2>
     </div>
   </div>
   <div class='writeup'>
-    <h1 class='discussion'>What's that 4px air gap between those rows?</h1>
+    <h2 class='discussion'>What's that 4px air gap between those rows?</h2>
     <p class='discussion'>It has to do with the rows being display: inline-block. This gap is not actually 4px, it is actually 1 character width (in the parent container's font-size). There are a couple fixes for this, depending on your design needs. If you can specify the font size of every single text elemnt you will use, you can set:</p>
-    <code class='example'>html
+    <code class='example'><h2>grid.sass</h2>
+    @import &quot;NIRDgrid&quot;
+    <br>
+    <br>
+    html
     <br>
     &nbsp;&nbsp;font-size: 0    <br>
     h1
@@ -168,27 +182,37 @@
     &nbsp;&nbsp;font-size: 18px    <br>
     // And so on</code>
     <p class='discussion'>If you would rather use the scapel in leu of the sledgehammer, you can apply the following to the offending rows:</p>
-    <code class='example'>.ex2_row
+    <code class='example'><h2>grid.sass</h2>
+    @import &quot;NIRDgrid&quot;
+    <br>
+    <br>
+    .ex2_row
     <br>
     &nbsp;&nbsp;margin-bottom: -4px</code>
     <h1 class='discussion'>Example 3 - nesting columns inside other columns</h1>
-    <code class='example'>.ex3_row
+    <code class='example'><h2>grid.haml</h2>
+    .ex3_row
     <br>
     &nbsp;&nbsp;.ex3_col    <br>
     &nbsp;&nbsp;&nbsp;&nbsp;%h1 Second column    <br>
     &nbsp;&nbsp;.ex3_col    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;%h1 Main column    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;.ex3_nest    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nested    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;.ex3_nest    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nested    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;.ex3_nest    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nested    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;.ex3_nest_row    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%h1 Main column    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.ex3_nest    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nested    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.ex3_nest    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nested    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.ex3_nest    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nested    <br>
     &nbsp;&nbsp;.ex3_col    <br>
     &nbsp;&nbsp;&nbsp;&nbsp;%h1 Third column    <br>
     &nbsp;&nbsp;.ex3_col    <br>
     &nbsp;&nbsp;&nbsp;&nbsp;%h1 Fourth column</code>
-    <code class='example'>.ex3_row
+    <code class='example'><h2>grid.sass</h2>
+    @import &quot;NIRDgrid&quot;
+    <br>
+    <br>
+    .ex3_row
     <br>
     &nbsp;&nbsp;+row(4%, 2%)    <br>
     &nbsp;&nbsp;background-color: green    <br>
@@ -201,11 +225,14 @@
     &nbsp;&nbsp;&nbsp;&nbsp;background-color: tan    <br>
     %h1
     <br>
-    &nbsp;&nbsp;+column(1, 1, 0%, 0%)    <br>
+    &nbsp;&nbsp;+column(1, 1, 5%, 10%)    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
+    .ex3_nest_row
+    <br>
+    &nbsp;&nbsp;+row(5%, 10%)    <br>
     .ex3_nest
     <br>
-    &nbsp;&nbsp;+column(3, 1, 0%, 0%)    <br>
+    &nbsp;&nbsp;+column(3, 1, 5%, 10%)    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
     &nbsp;&nbsp;color: red    <br>
     &nbsp;&nbsp;background-color: grey    <br>
@@ -214,52 +241,171 @@
   </div>
   <div class='ex3_row'>
     <div class='ex3_col'>
-      <h1>First Column</h1>
-    </div>
-    <div class='ex3_col'>
-      <h1>Main column</h1>
-      <div class='ex3_nest'>
-        Nested
-      </div>
-      <div class='ex3_nest'>
-        Nested
-      </div>
-      <div class='ex3_nest'>
-        Nested
+      <div class='ex3_nest_row'>
+        <h1>First Column</h1>
       </div>
     </div>
     <div class='ex3_col'>
-      <h1>Third Column</h1>
-    </div>
-    <div class='ex3_col'>
-      <h1>Fourth Column</h1>
-    </div>
-  </div>
-  <div class='ex3_row'>
-    <div class='ex3_col'>
-      <h1>First Column</h1>
-    </div>
-    <div class='ex3_col'>
-      <h1>Main column</h1>
-      <div class='container'>
-        <div class='ex3_nest_row'>
-          <div class='ex3_nest'>
-            Nested
-          </div>
-          <div class='ex3_nest'>
-            Nested
-          </div>
-          <div class='ex3_nest'>
-            Nested
-          </div>
+      <div class='ex3_nest_row'>
+        <h1>Main column</h1>
+        <div class='ex3_nest'>
+          Nested
+        </div>
+        <div class='ex3_nest'>
+          Nested
+        </div>
+        <div class='ex3_nest'>
+          Nested
         </div>
       </div>
     </div>
     <div class='ex3_col'>
-      <h1>Third Column</h1>
+      <div class='ex3_nest_row'>
+        <h1>Third Column</h1>
+      </div>
     </div>
     <div class='ex3_col'>
-      <h1>Fourth Column</h1>
+      <div class='ex3_nest_row'>
+        <h1>Fourth Column</h1>
+      </div>
+    </div>
+  </div>
+  <div class='writeup'>
+    <h1 class='discussion'>Example 4 - multiple column widths</h1>
+    <p class='discussion'>The NIRDgrid is able to expand your selected elements to fit multiple columns, if your design calls for that sort of thing. Note how the second value that specifies column width is a whole number of your layout's basic columns. Like the rest of NIRDgrid, the class names here are arbitrary, so all you need to do is call the mixins in the definition of your element's selector, and you're good to go.</p>
+    <code class='example'><h2>grid.haml</h2>
+    .ex4_row
+    <br>
+    &nbsp;&nbsp;.ex4_col_small    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 1    <br>
+    &nbsp;&nbsp;.ex4_col_small    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 1    <br>
+    &nbsp;&nbsp;.ex4_col_medium    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 2 Col    <br>
+    &nbsp;&nbsp;.ex4_col_large    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 3 Columns    <br>
+    &nbsp;&nbsp;.ex4_col_small    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 1    <br>
+    &nbsp;&nbsp;.ex4_col_huge    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 4 Columns</code>
+    <code class='example'><h2>grid.sass</h2>
+    @import &quot;NIRDgrid&quot;
+    <br>
+    <br>
+    .ex4_row
+    <br>
+    &nbsp;&nbsp;+row(2%, 4%)    <br>
+    &nbsp;&nbsp;background-color: chocolate    <br>
+    .ex4_col_small
+    <br>
+    &nbsp;&nbsp;+column(12, 1, 2%, 4%)    <br>
+    &nbsp;&nbsp;background-color: grey    <br>
+    .ex4_col_medium
+    <br>
+    &nbsp;&nbsp;+column(12, 2, 2%, 4%)    <br>
+    &nbsp;&nbsp;background-color: white    <br>
+    .ex4_col_large
+    <br>
+    &nbsp;&nbsp;+column(12, 3, 2%, 4%)    <br>
+    &nbsp;&nbsp;background-color: tan    <br>
+    .ex4_col_huge
+    <br>
+    &nbsp;&nbsp;+column(12, 4, 2%, 4%)    <br>
+    &nbsp;&nbsp;background-color: gold</code>
+  </div>
+  <div class='ex4_row'>
+    <div class='ex4_col_small'>
+      <h1>1</h1>
+    </div>
+    <div class='ex4_col_small'>
+      <h1>1</h1>
+    </div>
+    <div class='ex4_col_medium'>
+      <h1>2 Col</h1>
+    </div>
+    <div class='ex4_col_large'>
+      <h1>3 Columns</h1>
+    </div>
+    <div class='ex4_col_small'>
+      <h1>1</h1>
+    </div>
+    <div class='ex4_col_huge'>
+      <h1>4 Columns</h1>
+    </div>
+  </div>
+  <div class='writeup'>
+    <h1 class='discussion'>Example 5 - Pushing columns around</h1>
+    <p class='discussion'>Sometimes, especially on fairly sparse pages (login pages, for instance), you will want your columns to get pushed around, such as to be center aligned. NIRDgrid has optional values in the column mixin to handle this eventuality. Simply state how many base columns over you want to push in the direction you are pushing from, and your element will be nudged over a number of columns. There is the option to push from the right on right floated elements, but this is a rare case. You will note that it is possible to push in fractions of rows, but this isn't a normal practice in a strict column-based design.</p>
+    <code class='example'><h2>grid.haml</h2>
+    .ex5_row
+    <br>
+    &nbsp;&nbsp;.ex5_col-6_push-3    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;%h1 This is in the center of the page    <br>
+    <br>
+    &nbsp;&nbsp;- (1..12).each do    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;.ex5_col-1    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%h2 Col</code>
+    <code class='example'><h2>grid.sass</h2>
+    @import &quot;NIRDgrid&quot;
+    <br>
+    <br>
+    .ex5_row
+    <br>
+    &nbsp;&nbsp;+row(5%, 1%)    <br>
+    &nbsp;&nbsp;background-color: slategray    <br>
+    .ex5_col-6_push-3
+    <br>
+    &nbsp;&nbsp;+column(12, 6, 5%, 1%, 3, 0)    <br>
+    &nbsp;&nbsp;background-color: tan    <br>
+    .ex5_col-1
+    <br>
+    <br>
+    <!-- /Reference columns -->
+    <br>
+    &nbsp;&nbsp;+column(12, 1, 5%, 1%)    <br>
+    &nbsp;&nbsp;background-color: white</code>
+  </div>
+  <div class='ex5_row'>
+    <div class='ex5_col-6_push-3'>
+      <h1>This is in the center of the page</h1>
+    </div>
+  </div>
+  <div class='ex5_row'>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
+    </div>
+    <div class='ex5_col-1'>
+      <h2>Col</h2>
     </div>
   </div>
 </body>

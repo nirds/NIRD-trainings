@@ -1,4 +1,4 @@
-.discussion, code.mixin, code.example, .ex1_col, .ex2_col, .ex3_col, h1, .ex3_nest {
+.discussion, code.mixin, code.example, .ex1_col, .ex2_col, .ex3_col, .ex3_col h1, .ex3_nest, .ex4_col_small, .ex4_col_medium, .ex4_col_large, .ex4_col_huge, .ex5_col-6_push-3, .ex5_col-1 {
   float: left; }
 
 body {
@@ -45,7 +45,7 @@ code.example {
   margin-left: 0%;
   margin-right: 0%;
   width: 50%;
-  background-color: grey; }
+  background-color: gray; }
   .ex1_col:nth-of-type(2n) {
     background-color: tan; }
 
@@ -62,7 +62,7 @@ code.example {
   margin-left: 5%;
   margin-right: 5%;
   width: 23.33333%;
-  background-color: grey; }
+  background-color: gray; }
   .ex2_col:nth-of-type(2n) {
     background-color: tan; }
 
@@ -92,15 +92,14 @@ code.example {
   margin-left: 2.27273%;
   margin-right: 2.27273%;
   width: 20.45455%;
-  background-color: grey; }
+  background-color: gray; }
   .ex3_col:nth-of-type(2n) {
     background-color: tan; }
-
-h1 {
-  display: block;
-  margin-left: 0%;
-  margin-right: 0%;
-  width: 100%; }
+  .ex3_col h1 {
+    display: block;
+    margin-left: 2.94118%;
+    margin-right: 2.94118%;
+    width: 94.11765%; }
 
 .ex3_nest_row {
   display: inline-block;
@@ -115,6 +114,64 @@ h1 {
   margin-right: 2.94118%;
   width: 27.45098%;
   color: red;
-  background-color: grey; }
+  background-color: gray; }
   .ex3_nest:nth-of-type(2n) {
     background-color: black; }
+
+.ex4_row {
+  display: inline-block;
+  margin-left: 0;
+  width: 100%;
+  padding-left: 0%;
+  padding-right: 0%;
+  background-color: chocolate; }
+
+.ex4_col_small {
+  display: block;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 4.33333%;
+  background-color: gray; }
+
+.ex4_col_medium {
+  display: block;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 12.66667%;
+  background-color: white; }
+
+.ex4_col_large {
+  display: block;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 21%;
+  background-color: tan; }
+
+.ex4_col_huge {
+  display: block;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 29.33333%;
+  background-color: gold; }
+
+.ex5_row {
+  display: inline-block;
+  margin-left: 0;
+  width: 91%;
+  padding-left: 4.5%;
+  padding-right: 4.5%;
+  background-color: slategrey; }
+
+.ex5_col-6_push-3 {
+  display: block;
+  margin-left: 25.54945%;
+  margin-right: 0.54945%;
+  width: 48.9011%;
+  background-color: tan; }
+
+.ex5_col-1 {
+  display: block;
+  margin-left: 0.54945%;
+  margin-right: 0.54945%;
+  width: 7.23443%;
+  background-color: white; }

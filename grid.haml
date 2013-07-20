@@ -38,7 +38,7 @@
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          %h1 This is the first column
+          %h2 This is the first column
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -46,9 +46,13 @@
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          %h1 This is the second column
+          %h2 This is the second column
     %code.example
       %h2 grid.sass
+      :escaped
+        @import "NIRDgrid"
+      %br
+      %br
       :escaped
         .ex1_row
       %br
@@ -85,9 +89,9 @@
   .ex1_row
     %h1 This is the row element
     .ex1_col
-      %h1 This is the first column
+      %h2 This is the first column
     .ex1_col
-      %h1 This is the second column
+      %h2 This is the second column
   .writeup
     %h2.discussion So what's going on?
     %p.discussion This example did not specify a margin or width, so they defaulted to zero and the column grid took up the whole page without. The float_left placeholder handles the floating of the elements. Of course the background coloring of the elements has nothing to do with the grid, but it hopefully helped you see what each element was doing.
@@ -108,7 +112,7 @@
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          %h1 First column
+          %h2 First column
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -116,17 +120,21 @@
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          %h1 Third column
+          %h2 Third column
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex1_col
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          %h1 Fourth column
-      %br
-      = precede '&nbsp;' * 4 do
-        :escaped
-          %h1 Second column
+          %h2 Fourth column
     %code.example
       %h2 grid.sass
+      :escaped
+        @import "NIRDgrid"
+      %br
+      %br
       :escaped
         .ex1_row
       %br
@@ -163,18 +171,23 @@
   .ex2_row
     %h1 Row Element
     .ex2_col
-      %h1 First Column
+      %h2 First Column
     .ex2_col
-      %h1 Second Column
+      %h2 Second Column
     .ex2_col
-      %h1 Third Column
+      %h2 Third Column
     .ex2_col
-      %h1 Fourth Column
+      %h2 Fourth Column
 
   .writeup
     %h2.discussion Why does the label for row not get any kind of margin?
     %p.discussion The row element is helpful for positioning the columns and perhaps carrying a background color, but isn't designed for carrying its own content. In this case, we might apply something like
     %code.example
+      %h2 grid.sass
+      :escaped
+        @import "NIRDgrid"
+      %br
+      %br
       :escaped
         .ex2_row
       %br
@@ -189,43 +202,48 @@
   .ex2-1_row
     %h1 Row Element
     .ex2_col
-      %h1 First Column
+      %h2 First Column
     .ex2_col
-      %h1 Second Column
+      %h2 Second Column
     .ex2_col
-      %h1 Third Column
+      %h2 Third Column
     .ex2_col
-      %h1 Fourth Column
+      %h2 Fourth Column
   .writeup
     %h2.discussion Does this wrapping columns awesomeness still work when the columns are different heights?
     %p.discussion Ok, you got me. Here's what happens when you try that:
   .ex2_row
     .ex2_col
-      %h1 First Column
+      %h2 First Column
       %p And some text, just to make the world an asymetrical place.
     .ex2_col
-      %h1 Second Column
+      %h2 Second Column
     .ex2_col
-      %h1 Third Column
+      %h2 Third Column
     .ex2_col
-      %h1 Fourth Column
+      %h2 Fourth Column
   .writeup
     %p.discussion You are assumed to have control over the layout of your view, so the fix is simple: apply another row:
   .ex2_row
     .ex2_col
-      %h1 First Column
+      %h2 First Column
       %p And some text, just to make the world an asymetrical place.
     .ex2_col
-      %h1 Second Column
+      %h2 Second Column
     .ex2_col
-      %h1 Third Column
+      %h2 Third Column
   .ex2_row
     .ex2_col
-      %h1 Fourth Column
+      %h2 Fourth Column
   .writeup
-    %h1.discussion What's that 4px air gap between those rows?
+    %h2.discussion What's that 4px air gap between those rows?
     %p.discussion It has to do with the rows being display: inline-block. This gap is not actually 4px, it is actually 1 character width (in the parent container's font-size). There are a couple fixes for this, depending on your design needs. If you can specify the font size of every single text elemnt you will use, you can set:
     %code.example
+      %h2 grid.sass
+      :escaped
+        @import "NIRDgrid"
+      %br
+      %br
       :escaped
         html
       %br
@@ -251,6 +269,11 @@
         // And so on
     %p.discussion If you would rather use the scapel in leu of the sledgehammer, you can apply the following to the offending rows:
     %code.example
+      %h2 grid.sass
+      :escaped
+        @import "NIRDgrid"
+      %br
+      %br
       :escaped
         .ex2_row
       %br
@@ -260,6 +283,7 @@
 
     %h1.discussion Example 3 - nesting columns inside other columns
     %code.example
+      %h2 grid.haml
       :escaped
         .ex3_row
       %br
@@ -278,29 +302,33 @@
       %br
       = precede '&nbsp;' * 4 do
         :escaped
+          .ex3_nest_row
+      %br
+      = precede '&nbsp;' * 6 do
+        :escaped
           %h1 Main column
       %br
-      = precede '&nbsp;' * 4 do
+      = precede '&nbsp;' * 6 do
         :escaped
           .ex3_nest
       %br
-      = precede '&nbsp;' * 6 do
+      = precede '&nbsp;' * 8 do
         :escaped
           Nested
       %br
-      = precede '&nbsp;' * 4 do
+      = precede '&nbsp;' * 6 do
         :escaped
           .ex3_nest
       %br
-      = precede '&nbsp;' * 6 do
+      = precede '&nbsp;' * 8 do
         :escaped
           Nested
       %br
-      = precede '&nbsp;' * 4 do
+      = precede '&nbsp;' * 6 do
         :escaped
           .ex3_nest
       %br
-      = precede '&nbsp;' * 6 do
+      = precede '&nbsp;' * 8 do
         :escaped
           Nested
       %br
@@ -320,6 +348,11 @@
         :escaped
           %h1 Fourth column
     %code.example
+      %h2 grid.sass
+      :escaped
+        @import "NIRDgrid"
+      %br
+      %br
       :escaped
         .ex3_row
       %br
@@ -359,18 +392,25 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          +column(1, 1, 0%, 0%)
+          +column(1, 1, 5%, 10%)
       %br
       = precede '&nbsp;' * 2 do
         :escaped
           @extend %float_left
       %br
       :escaped
+        .ex3_nest_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +row(5%, 10%)
+      %br
+      :escaped
         .ex3_nest
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          +column(3, 1, 0%, 0%)
+          +column(3, 1, 5%, 10%)
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -393,33 +433,221 @@
           background-color: black
   .ex3_row
     .ex3_col
-      %h1 First Column
+      .ex3_nest_row
+        %h1 First Column
     .ex3_col
-      %h1 Main column
-      .ex3_nest
-        Nested
-      .ex3_nest
-        Nested
-      .ex3_nest
-        Nested
+      .ex3_nest_row
+        %h1 Main column
+        .ex3_nest
+          Nested
+        .ex3_nest
+          Nested
+        .ex3_nest
+          Nested
     .ex3_col
-      %h1 Third Column
+      .ex3_nest_row
+        %h1 Third Column
     .ex3_col
-      %h1 Fourth Column
-  .ex3_row
-    .ex3_col
-      %h1 First Column
-    .ex3_col
-      %h1 Main column
-      .container
-        .ex3_nest_row
-          .ex3_nest
-            Nested
-          .ex3_nest
-            Nested
-          .ex3_nest
-            Nested
-    .ex3_col
-      %h1 Third Column
-    .ex3_col
-      %h1 Fourth Column
+      .ex3_nest_row
+        %h1 Fourth Column
+  .writeup
+    %h1.discussion Example 4 - multiple column widths
+    %p.discussion The NIRDgrid is able to expand your selected elements to fit multiple columns, if your design calls for that sort of thing. Note how the second value that specifies column width is a whole number of your layout's basic columns. Like the rest of NIRDgrid, the class names here are arbitrary, so all you need to do is call the mixins in the definition of your element's selector, and you're good to go.
+    %code.example
+      %h2 grid.haml
+      :escaped
+        .ex4_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex4_col_small
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 1
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex4_col_small
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 1
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex4_col_medium
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 2 Col
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex4_col_large
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 3 Columns
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex4_col_small
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 1
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex4_col_huge
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 4 Columns
+    %code.example
+      %h2 grid.sass
+      :escaped
+        @import "NIRDgrid"
+      %br
+      %br
+      :escaped
+        .ex4_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +row(2%, 4%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: chocolate
+      %br
+      :escaped
+        .ex4_col_small
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(12, 1, 2%, 4%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: grey
+      %br
+      :escaped
+        .ex4_col_medium
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(12, 2, 2%, 4%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: white
+      %br
+      :escaped
+        .ex4_col_large
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(12, 3, 2%, 4%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: tan
+      %br
+      :escaped
+        .ex4_col_huge
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +column(12, 4, 2%, 4%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: gold
+  .ex4_row
+    .ex4_col_small
+      %h1 1
+    .ex4_col_small
+      %h1 1
+    .ex4_col_medium
+      %h1 2 Col
+    .ex4_col_large
+      %h1 3 Columns
+    .ex4_col_small
+      %h1 1
+    .ex4_col_huge
+      %h1 4 Columns
+  .writeup
+    %h1.discussion Example 5 - Pushing columns around
+    %p.discussion Sometimes, especially on fairly sparse pages (login pages, for instance), you will want your columns to get pushed around, such as to be center aligned. NIRDgrid has optional values in the column mixin to handle this eventuality. Simply state how many base columns over you want to push in the direction you are pushing from, and your element will be nudged over a number of columns. There is the option to push from the right on right floated elements, but this is a rare case. You will note that it is possible to push in fractions of rows, but this isn't a normal practice in a strict column-based design.
+    %code.example
+      %h2 grid.haml
+      :escaped
+        .ex5_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex5_col-6_push-3
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h1 This is in the center of the page
+      %br
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          - (1..12).each do
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          .ex5_col-1
+      %br
+      = precede '&nbsp;' * 6 do
+        :escaped
+          %h2 Col
+    %code.example
+      %h2 grid.sass
+      :escaped
+        @import "NIRDgrid"
+      %br
+      %br
+      :escaped
+        .ex5_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +row(5%, 1%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: slategray
+      %br
+      :escaped
+        .ex5_col-6_push-3
+      %br
+      = precede '&nbsp;' * 2 do
+        +column(12, 6, 5%, 1%, 3, 0)
+      %br
+      = precede '&nbsp;' * 2 do
+        background-color: tan
+      %br
+      :escaped
+        .ex5_col-1
+      %br
+      %br
+      //Reference columns
+      %br
+      = precede '&nbsp;' * 2 do
+        +column(12, 1, 5%, 1%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: white
+  .ex5_row
+    .ex5_col-6_push-3
+      %h1 This is in the center of the page
+  .ex5_row
+    - (1..12).each do
+      .ex5_col-1
+        %h2 Col
