@@ -46,16 +46,16 @@ code.example {
   width: 100%;
   padding-left: 0%;
   padding-right: 0%;
-  background-color: orange; }
+  background-color: #2966a3; }
 
 .ex1_col {
   display: block;
   margin-left: 0%;
   margin-right: 0%;
   width: 50%;
-  background-color: gray; }
+  background-color: #a36629; }
   .ex1_col:nth-of-type(2n) {
-    background-color: tan; }
+    background-color: #ebccad; }
 
 .ex2_row {
   display: inline-block;
@@ -63,16 +63,16 @@ code.example {
   width: 100%;
   padding-left: 0%;
   padding-right: 0%;
-  background-color: yellow; }
+  background-color: #2966a3; }
 
 .ex2_col {
   display: block;
   margin-left: 5%;
   margin-right: 5%;
   width: 23.33333%;
-  background-color: gray; }
+  background-color: #a36629; }
   .ex2_col:nth-of-type(2n) {
-    background-color: tan; }
+    background-color: #ebccad; }
 
 .ex2-1_row {
   display: inline-block;
@@ -80,7 +80,7 @@ code.example {
   width: 100%;
   padding-left: 0%;
   padding-right: 0%;
-  background-color: yellow; }
+  background-color: #2966a3; }
   .ex2-1_row h1 {
     display: block;
     margin-left: 5%;
@@ -93,38 +93,39 @@ code.example {
   width: 88%;
   padding-left: 6%;
   padding-right: 6%;
-  background-color: green; }
+  background-color: #2966a3; }
 
 .ex3_col {
   display: block;
   margin-left: 2.27273%;
   margin-right: 2.27273%;
   width: 20.45455%;
-  background-color: gray; }
+  background-color: #a36629; }
   .ex3_col:nth-of-type(2n) {
-    background-color: tan; }
+    background-color: #ebccad; }
   .ex3_col h1 {
     display: block;
     margin-left: 2.94118%;
     margin-right: 2.94118%;
-    width: 94.11765%; }
+    width: 94.11765%;
+    background-color: #ebccad; }
 
 .ex3_nest_row {
   display: inline-block;
   margin-left: 0;
   width: 85%;
   padding-left: 7.5%;
-  padding-right: 7.5%; }
+  padding-right: 7.5%;
+  background-color: #adcceb; }
 
 .ex3_nest {
   display: block;
   margin-left: 2.94118%;
   margin-right: 2.94118%;
   width: 27.45098%;
-  color: red;
-  background-color: gray; }
+  background-color: #a36629; }
   .ex3_nest:nth-of-type(2n) {
-    background-color: black; }
+    background-color: #664019; }
 
 .ex4_row {
   display: inline-block;
@@ -132,35 +133,35 @@ code.example {
   width: 100%;
   padding-left: 0%;
   padding-right: 0%;
-  background-color: chocolate; }
+  background-color: #2966a3; }
 
 .ex4_col_small {
   display: block;
   margin-left: 2%;
   margin-right: 2%;
   width: 4.33333%;
-  background-color: gray; }
+  background-color: #a36629; }
 
 .ex4_col_medium {
   display: block;
   margin-left: 2%;
   margin-right: 2%;
   width: 12.66667%;
-  background-color: white; }
+  background-color: #ebccad; }
 
 .ex4_col_large {
   display: block;
   margin-left: 2%;
   margin-right: 2%;
   width: 21%;
-  background-color: tan; }
+  background-color: #664019; }
 
 .ex4_col_huge {
   display: block;
   margin-left: 2%;
   margin-right: 2%;
   width: 29.33333%;
-  background-color: gold; }
+  background-color: #a36629; }
 
 .ex5_row {
   display: inline-block;
@@ -168,21 +169,21 @@ code.example {
   width: 91%;
   padding-left: 4.5%;
   padding-right: 4.5%;
-  background-color: slategrey; }
+  background-color: #2966a3; }
 
 .ex5_col-6_push-3 {
   display: block;
   margin-left: 25.54945%;
   margin-right: 0.54945%;
   width: 48.9011%;
-  background-color: tan; }
+  background-color: #a36629; }
 
 .ex5_col-1 {
   display: block;
   margin-left: 0.54945%;
   margin-right: 0.54945%;
   width: 7.23443%;
-  background-color: white; }
+  background-color: #ebccad; }
 
 .ex6_row {
   display: inline-block;
@@ -190,21 +191,21 @@ code.example {
   width: 95%;
   padding-left: 2.5%;
   padding-right: 2.5%;
-  background-color: lightgrey; }
+  background-color: #2966a3; }
 
 .ex6_col-2 {
   display: block;
   margin-left: 0.52632%;
   margin-right: 0.52632%;
   width: 15.61404%;
-  border: solid black 1px; }
+  border: solid 2px #664019; }
 
 .ex6_col-3_push-2 {
   display: block;
   margin-left: 17.19298%;
   margin-right: 0.52632%;
   width: 23.94737%;
-  background-color: tan;
+  background-color: #a36629;
   padding: 10px 10px; }
 
 .ex6_col-3_push-1_right {
@@ -212,7 +213,8 @@ code.example {
   margin-left: 0.52632%;
   margin-right: 8.85965%;
   width: 23.94737%;
-  border: solid red 5px;
+  background-color: #ebccad;
+  border: solid 5px #664019;
   padding: 15px 15px; }
 
 .ex6_col-1 {
@@ -220,4 +222,4 @@ code.example {
   margin-left: 0.52632%;
   margin-right: 0.52632%;
   width: 7.2807%;
-  background-color: white; }
+  background-color: #664019; }
