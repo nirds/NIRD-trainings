@@ -6,21 +6,24 @@
 %body
   .writeup
     %h1.discussion Introduction
-    %p.discussion The NIRDgrid uses SASS mixins to generate column-based styles for our webapps, and is designed to accomodate a wide variety of style choices. This grid uses floated elements with carefully designed margins, paddings and widths to position each element in a horizontal column layout.
+    %p.discussion NIRD has found many prebuilt css frameworks lacking for flexibility and overly opinionated about site layouts. Typical custom designed web apps require a more modular approach to the stylesheet archetecture, with minimal overhead for custom responsive layouts. NIRD makes use of {link_to 'SASS' http://sass-lang.com/} to improve the agility and maintainability of the front-end development, as inspired by the writing of the front-end archetect {link_to 'Roy Tomeij' http://roytomeij.com/}. One of the tools we have developed is a collection of mixins (generators of custom css code, customized from some inputs) called NIRDgrid.
+    %p.discussion The NIRDgrid uses custom SASS mixins to generate column-based styles for our webapps, and is designed to accomodate a wide variety of style choices. This grid uses floated elements with carefully designed margins, paddings and widths to position each element in a horizontal column layout. Since this tool is built in a SASS partial, it can be easilly dropped into any SASS front-end and used without interferring with the rest of your design.
+    %p.discussion Using NIRDgrid doesn't require you to make use of any particular naming conventions in your html, since SASS mixins can be applied to any element, class or id you would normally style. It is generally benificial to keep your layout selection conventions seperate from your style selection conventions, but you are not <em>required</em> to do anything with this grid system.
     %h2.discussion Some Assumptions about your design
     %ul.discussion
-      %li You are pretty confidant with the order of elements in your view, and can rearrange your DOM as needed.
-      %li You are not planning on rearranging things on the fly. It is possible, but awkward.
-      %li You are planning on consistent margins around and gutters between your columns.
+      %li You are confidant with the order of elements in your view, and can rearrange your html as needed.
+      %li You are not planning on rearranging things on the fly. It is possible, but will require use of javascript.
+      %li You are planning on consistent margins around your content at the edges of the screen and gutters between your columns.
+      %li An often unspoken assumption in web design: You are designing with a column-based grid. While this is pretty standard in modern web designs because multiple screen sizes and variable font sizes make more traditional graphic design grid systems difficult to implement well, there are many other styles you might design to.
     %h2.discussion The mixins
     %code.mixin
       :escaped
         +row( <width of margin in % of browser>, <width of gutter in % of browser> )
-    %p.discussion The row mixin calculates the necessary margins, paddings and widths of a container element so that elements with a column layout can be properly floated within it.
+    %p.discussion The row mixin calculates the necessary margins, paddings and widths of an element so that elements contained within it can be properly floated within it to create a column based layout.
     %code.mixin
       :escaped
         +column( <number of columns in layout>, <number of columns wide this element should be>, <margin %>, <gutter %>, <number of columns element should be pushed left>, <number of columns element should be pushed right> )
-    %p.discussion The column mixin instructs your element to have the right margins and width so that, when floated in the container with the row mixin applied, will naturally pop into the column grid you want. The number of columns in your grid is defined with the first parameter (as an integer), and the width of your element can be specified as an integer multiple of rows. Both default to 1 if you don't input them. The margin % and gutter % should match those used in the row of the parent element. You can also push your element a number of columns to the left or the right (depending on which side you're floating off of) if your design calls for gaps between the content.
+    %p.discussion The column mixin instructs your element to have the right margins and width so that, when floated in the container with the row mixin applied, will naturally pop into the column grid you want. The number of columns in your grid is defined with the first parameter (as an integer), and the width of your element can be specified as an integer multiple of rows. Both default to 1 if you don't input them. The margin % and gutter % should match those used in the row of the parent element so that the math is consistent for the column and its container row. You can also push your element a number of columns to the left or the right (depending on which side you're floating off of) if your design calls for gaps between the content.
 
     %h1.discussion Example 1 - the basics
     %code.example
