@@ -37,14 +37,14 @@
     .ex1_row
     <br>
     &nbsp;&nbsp;+row()    <br>
-    &nbsp;&nbsp;background-color: #2966a3 //Dark Blue    <br>
+    &nbsp;&nbsp;background-color: #2966a3 //Dark grey    <br>
     .ex1_col
     <br>
     &nbsp;&nbsp;+col(2, 1)    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
-    &nbsp;&nbsp;background-color: #a36629 //Med Brown    <br>
+    &nbsp;&nbsp;background-color: #a36629 //Med pink    <br>
     &nbsp;&nbsp;&amp;:nth-of-type(2n)    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;background-color: #ebccad //Light Brown</code>
+    &nbsp;&nbsp;&nbsp;&nbsp;background-color: #ebccad //Light pink</code>
   </div>
   <div class='ex1_row'>
     <h1>This is the row element</h1>
@@ -57,7 +57,7 @@
   </div>
   <div class='writeup'>
     <h2 class='discussion'>So what's going on?</h2>
-    <p class='discussion'>This example did not specify a margin or width, so they defaulted to zero and the column grid took up the whole page without. The float_left placeholder handles the floating of the elements. Of course the background coloring of the elements has nothing to do with the grid, but it hopefully helped you see what each element was doing.</p>
+    <p class='discussion'>This example did not specify a margin or gutter, so they defaulted to zero and the column grid took up the whole page without. The float_left placeholder handles the floating of the elements. The background coloring of the elements has nothing to do with the grid, but it hopefully helped you see what each element was doing.</p>
     <h1 class='discussion'>Example 2 - What about having too many elements for the row?</h1>
     <code class='example'><h2>grid.haml</h2>
     .ex1_row
@@ -76,14 +76,14 @@
     .ex1_row
     <br>
     &nbsp;&nbsp;+row(5%, 10%)    <br>
-    &nbsp;&nbsp;background-color: #2966a3 //Dark Blue    <br>
+    &nbsp;&nbsp;background-color: #2966a3 //Dark grey    <br>
     .ex1_col
     <br>
     &nbsp;&nbsp;+col(3, 1, 5%, 10%)    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
-    &nbsp;&nbsp;background-color: #a36629 //Medium Brown    <br>
+    &nbsp;&nbsp;background-color: #a36629 //Medium pink    <br>
     &nbsp;&nbsp;&amp;:nth-of-type(2n)    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;background-color: #ebccad //Light Brown</code>
+    &nbsp;&nbsp;&nbsp;&nbsp;background-color: #ebccad //Light pink</code>
   </div>
   <div class='ex2_row'>
     <h1>Row Element</h1>
@@ -214,30 +214,30 @@
     .ex3_row
     <br>
     &nbsp;&nbsp;+row(4%, 2%)    <br>
-    &nbsp;&nbsp;background-color: #2966a3 //Dark Blue    <br>
+    &nbsp;&nbsp;background-color: #2966a3 //Dark grey    <br>
     .ex3_col
     <br>
     &nbsp;&nbsp;+column(4, 1, 4%, 2%)    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
-    &nbsp;&nbsp;background-color: #a36629 //Medium Brown    <br>
+    &nbsp;&nbsp;background-color: #a36629 //Medium pink    <br>
     &nbsp;&nbsp;&amp;:nth-of-type(2n)    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;background-color: #ebccad //Light Brown    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;background-color: #ebccad //Light pink    <br>
     %h1
     <br>
     &nbsp;&nbsp;+column(1, 1, 5%, 10%)    <br>
-    &nbsp;&nbsp;background-color: #ebccad //Light Brown    <br>
+    &nbsp;&nbsp;background-color: #ebccad //Light pink    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
     .ex3_nest_row
     <br>
     &nbsp;&nbsp;+row(5%, 10%)    <br>
-    &nbsp;&nbsp;background-color: #adcceb //Light Blue    <br>
+    &nbsp;&nbsp;background-color: #adcceb //Light grey    <br>
     .ex3_nest
     <br>
     &nbsp;&nbsp;+column(3, 1, 5%, 10%)    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
-    &nbsp;&nbsp;background-color: #a36629 //Medium Brown    <br>
+    &nbsp;&nbsp;background-color: #a36629 //Medium pink    <br>
     &nbsp;&nbsp;&amp;:nth-of-type(2n)    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;background-color: #664019 //Dark Brown</code>
+    &nbsp;&nbsp;&nbsp;&nbsp;background-color: #664019 //Dark pink</code>
   </div>
   <div class='ex3_row'>
     <div class='ex3_col'>
@@ -295,23 +295,23 @@
     .ex4_row
     <br>
     &nbsp;&nbsp;+row(2%, 4%)    <br>
-    &nbsp;&nbsp;background-color: #2966a3 //Dark Blue    <br>
+    &nbsp;&nbsp;background-color: #2966a3 //Dark grey    <br>
     .ex4_col_small
     <br>
     &nbsp;&nbsp;+column(12, 1, 2%, 4%)    <br>
-    &nbsp;&nbsp;background-color: #a36629 //Medium Brown    <br>
+    &nbsp;&nbsp;background-color: #a36629 //Medium pink    <br>
     .ex4_col_medium
     <br>
     &nbsp;&nbsp;+column(12, 2, 2%, 4%)    <br>
-    &nbsp;&nbsp;background-color: #ebccad //Light Brown    <br>
+    &nbsp;&nbsp;background-color: #ebccad //Light pink    <br>
     .ex4_col_large
     <br>
     &nbsp;&nbsp;+column(12, 3, 2%, 4%)    <br>
-    &nbsp;&nbsp;background-color: #664019 //Dark Brown    <br>
+    &nbsp;&nbsp;background-color: #664019 //Dark pink    <br>
     .ex4_col_huge
     <br>
     &nbsp;&nbsp;+column(12, 4, 2%, 4%)    <br>
-    &nbsp;&nbsp;background-color: #a36629 //Medium Brown</code>
+    &nbsp;&nbsp;background-color: #a36629 //Medium pink</code>
   </div>
   <div class='ex4_row'>
     <div class='ex4_col_small'>
@@ -354,18 +354,18 @@
     .ex5_row
     <br>
     &nbsp;&nbsp;+row(5%, 1%)    <br>
-    &nbsp;&nbsp;background-color: #2966a3 //Dark Blue    <br>
+    &nbsp;&nbsp;background-color: #2966a3 //Dark grey    <br>
     .ex5_col-6_push-3
     <br>
     &nbsp;&nbsp;+column(12, 6, 5%, 1%, 3, 0)    <br>
-    &nbsp;&nbsp;background-color: #a36629 //Medium Brown    <br>
+    &nbsp;&nbsp;background-color: #a36629 //Medium pink    <br>
     .ex5_col-1
     <br>
     <br>
     //Reference columns
     <br>
     &nbsp;&nbsp;+column(12, 1, 5%, 1%)    <br>
-    &nbsp;&nbsp;background-color: #ebccad //Light Brown</code>
+    &nbsp;&nbsp;background-color: #ebccad //Light pink</code>
   </div>
   <div class='ex5_row'>
     <div class='ex5_col-6_push-3'>
@@ -439,32 +439,32 @@
     .ex6_row
     <br>
     &nbsp;&nbsp;+row(3%, 1%)    <br>
-    &nbsp;&nbsp;background-color: #2966a3 //Dark Blue    <br>
+    &nbsp;&nbsp;background-color: #2966a3 //Dark grey    <br>
     .ex6_col-2
     <br>
     &nbsp;&nbsp;+column(12, 2, 3%, 1%)    <br>
     &nbsp;&nbsp;@extend %box    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
-    &nbsp;&nbsp;border: solid 2px #664019 //Dark Brown    <br>
+    &nbsp;&nbsp;border: solid 2px #664019 //Dark pink    <br>
     .ex6_col-3_push-2
     <br>
     &nbsp;&nbsp;+column(12, 3, 3%, 1%, 2)    <br>
     &nbsp;&nbsp;@extend %box    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
-    &nbsp;&nbsp;background-color: #a36629 //Medium Brown    <br>
+    &nbsp;&nbsp;background-color: #a36629 //Medium pink    <br>
     &nbsp;&nbsp;padding: 10px 10px    <br>
     .ex6_col-3_push-1_right
     <br>
     &nbsp;&nbsp;+column(12, 3, 3%, 1%, 0, 1)    <br>
     &nbsp;&nbsp;@extend %box    <br>
     &nbsp;&nbsp;@extend %float_right    <br>
-    &nbsp;&nbsp;background-color: #ebccad //Light Brown    <br>
-    &nbsp;&nbsp;border: solid 5px #664019 //Dark Brown    <br>
+    &nbsp;&nbsp;background-color: #ebccad //Light pink    <br>
+    &nbsp;&nbsp;border: solid 5px #664019 //Dark pink    <br>
     &nbsp;&nbsp;padding: 15px 15px    <br>
     .ex6_col-1
     <br>
     &nbsp;&nbsp;+column(12, 1, 3%, 1%)    <br>
-    &nbsp;&nbsp;background-color: #ebccad //Light Brown    <br>
+    &nbsp;&nbsp;background-color: #ebccad //Light pink    <br>
     &nbsp;&nbsp;@extend %float_left    <br>
     &nbsp;&nbsp;@extend %box</code>
   </div>
