@@ -6,9 +6,9 @@
 %body
   .writeup
     %h1.discussion Introduction
-    %p.discussion NIRD has found many prebuilt css frameworks lacking for flexibility and overly opinionated about site layouts. Typical custom designed web apps require a more modular approach to the stylesheet archetecture, with minimal overhead for custom responsive layouts. NIRD makes use of {link_to 'SASS' http://sass-lang.com/} to improve the agility and maintainability of the front-end development, as inspired by the writing of the front-end archetect {link_to 'Roy Tomeij' http://roytomeij.com/}. One of the tools we have developed is a collection of mixins (generators of custom css code, customized from some inputs) called NIRDgrid.
-    %p.discussion The NIRDgrid uses custom SASS mixins to generate column-based styles for our webapps, and is designed to accomodate a wide variety of style choices. This grid uses floated elements with carefully designed margins, paddings and widths to position each element in a horizontal column layout. Since this tool is built in a SASS partial, it can be easilly dropped into any SASS front-end and used without interferring with the rest of your design.
-    %p.discussion Using NIRDgrid doesn't require you to make use of any particular naming conventions in your html, since SASS mixins can be applied to any element, class or id you would normally style. It is generally benificial to keep your layout selection conventions seperate from your style selection conventions, but you are not <em>required</em> to do anything with this grid system.
+    %p.discussion NIRD has found many pre-built CSS frameworks lacking for flexibility and overly opinionated about site layouts. Typical custom designed web apps require a more modular approach to the stylesheet architecture, with minimal overhead for custom responsive layouts. NIRD makes use of {link_to 'SASS' http://sass-lang.com/} to improve the agility and maintainability of the front-end development, as inspired by the writing of the front-end architect {link_to 'Roy Tomeij' http://roytomeij.com/}. One of the tools we have developed is a collection of mixins (generators of custom CSS code, customized from some inputs) called NIRDgrid.
+    %p.discussion The NIRDgrid uses custom SASS mixins to generate column-based styles for our webapps, and is designed to accommodate a wide variety of style choices. This grid uses floated elements with carefully designed margins, paddings and widths to position each element in a horizontal column layout. Since this tool is built in a SASS partial, it can be easily dropped into any SASS front-end and used without interfering with the rest of your design.
+    %p.discussion Using NIRDgrid doesn't require you to make use of any particular naming conventions in your HTML, since SASS mixins can be applied to any element, class or id you would normally style. It is generally beneficial to keep your layout selection conventions separate from your style selection conventions, but you are not <em>required</em> to do anything with this grid system.
     %h2.discussion Some Assumptions about your design
     %ul.discussion
       %li You are confidant with the order of elements in your view, and can rearrange your html as needed.
@@ -65,7 +65,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #2966a3 //Dark grey
+          background-color: #999999 //Dark gray
       %br
       :escaped
         .ex1_col
@@ -80,7 +80,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #a36629 //Med pink
+          background-color: #e4819b //Med pink
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -88,7 +88,7 @@
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          background-color: #ebccad //Light pink
+          background-color: #f2c0cd //Light pink
   .ex1_row
     %h1 This is the row element
     .ex1_col
@@ -103,7 +103,7 @@
     %code.example
       %h2 grid.haml
       :escaped
-        .ex1_row
+        .ex2_row
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -111,7 +111,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          .ex1_col
+          .ex2_col
       %br
       = precede '&nbsp;' * 4 do
         :escaped
@@ -119,7 +119,15 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          .ex1_col
+          .ex2_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h2 Second column
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex2_col
       %br
       = precede '&nbsp;' * 4 do
         :escaped
@@ -127,7 +135,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          .ex1_col
+          .ex2_col
       %br
       = precede '&nbsp;' * 4 do
         :escaped
@@ -139,7 +147,7 @@
       %br
       %br
       :escaped
-        .ex1_row
+        .ex2_row
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -147,10 +155,10 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #2966a3 //Dark grey
+          background-color: #999999 //Dark gray
       %br
       :escaped
-        .ex1_col
+        .ex2_col
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -162,7 +170,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #a36629 //Medium pink
+          background-color: #e4819b //Medium pink
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -170,7 +178,7 @@
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          background-color: #ebccad //Light pink
+          background-color: #f2c0cd //Light pink
   .ex2_row
     %h1 Row Element
     .ex2_col
@@ -184,7 +192,47 @@
 
   .writeup
     %h2.discussion Why does the label for row not get any kind of margin?
-    %p.discussion The row element is helpful for positioning the columns and perhaps carrying a background color, but isn't designed for carrying its own content. In this case, we might apply something like
+    %p.discussion The row element is helpful for positioning the columns and perhaps carrying a background color, but isn't designed for carrying its own content. In this case, we might insert an element designed to semantically carry text, like:
+    %code.example
+      %h2 grid.haml
+      :escaped
+        .ex2_row
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          %h1 Row element
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex2_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h2 First column
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex2_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h2 Second column
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex2_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h2 Third column
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          .ex2_col
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          %h2 Fourth column
     %code.example
       %h2 grid.sass
       :escaped
@@ -196,11 +244,42 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
+          +row(5%, 10%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: #999999 //Dark gray
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
           h1
       %br
       = precede '&nbsp;' * 4 do
         :escaped
           +row(1, 1, 5%, 10%)
+      %br
+      :escaped
+        .ex2_col
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          +col(3, 1, 5%, 10%)
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          @extend %float_left
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          background-color: #e4819b //Medium pink
+      %br
+      = precede '&nbsp;' * 2 do
+        :escaped
+          &:nth-of-type(2n)
+      %br
+      = precede '&nbsp;' * 4 do
+        :escaped
+          background-color: #f2c0cd //Light pink
     %h3.discussion Which would look something like this:
   .ex2-1_row
     %h1 Row Element
@@ -214,11 +293,11 @@
       %h2 Fourth Column
   .writeup
     %h2.discussion Does this wrapping columns awesomeness still work when the columns are different heights?
-    %p.discussion Ok, you got me. Here's what happens when you try that:
+    %p.discussion Sorry, no. Here's what happens when you try that:
   .ex2_row
     .ex2_col
       %h2 First Column
-      %p And some text, just to make the world an asymetrical place.
+      %p And some text, just to make the world an asymmetrical place.
     .ex2_col
       %h2 Second Column
     .ex2_col
@@ -226,11 +305,11 @@
     .ex2_col
       %h2 Fourth Column
   .writeup
-    %p.discussion You are assumed to have control over the layout of your view, so the fix is simple: apply another row:
+    %p.discussion If your design is copasetic with having all of the elements in a row be forced into the same height, some judicious application of jQuery can fix this by setting the elements' heights to be equal to the tallest element in the row. But, in this case, where we've intentionally made different height columns, that's not applicable. Fortunately, the fix is simple (since you are assumed to have control over the layout of your view): apply another row.
   .ex2_row
     .ex2_col
       %h2 First Column
-      %p And some text, just to make the world an asymetrical place.
+      %p And some text, just to make the world an asymmetrical place.
     .ex2_col
       %h2 Second Column
     .ex2_col
@@ -238,45 +317,6 @@
   .ex2_row
     .ex2_col
       %h2 Fourth Column
-  .writeup
-    %h2.discussion What's that 4px air gap between those rows?
-    %p.discussion It has to do with the rows being display: inline-block with floated content within them. This gap is not actually 4px, it is actually 1 character width (in the parent container's font-size). There are a couple fixes for this, depending on your design needs. If you can specify the font size of every single text elemnt you will use, you can set:
-    %code.example
-      %h2 grid.sass
-      %br
-      :escaped
-        html
-      %br
-      = precede '&nbsp;' * 2 do
-        :escaped
-          font-size: 0
-      %br
-      :escaped
-        h1
-      %br
-      = precede '&nbsp;' * 2 do
-        :escaped
-          font-size: 22px
-      %br
-      :escaped
-        h2
-      %br
-      = precede '&nbsp;' * 2 do
-        :escaped
-          font-size: 18px
-      %br
-      :escaped
-        // And so on
-    %p.discussion If you would rather use the scapel in leu of the sledgehammer, you can apply the following to the offending rows:
-    %code.example
-      %h2 grid.sass
-      %br
-      :escaped
-        .ex2_row
-      %br
-      = precede '&nbsp;' * 2 do
-        :escaped
-          margin-bottom: -4px
     %h1.discussion Example 3 - nesting columns inside other columns
     %code.example
       %h2 grid.haml
@@ -358,7 +398,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #2966a3 //Dark grey
+          background-color: #999999 //Dark gray
       %br
       :escaped
         .ex3_col
@@ -373,7 +413,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #a36629 //Medium pink
+          background-color: #e4819b //Medium pink
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -381,7 +421,7 @@
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          background-color: #ebccad //Light pink
+          background-color: #f2c0cd //Light pink
       %br
       :escaped
         %h1
@@ -392,7 +432,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #ebccad //Light pink
+          background-color: #f2c0cd //Light pink
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -407,7 +447,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #adcceb //Light grey
+          background-color: #cccccc //Light gray
       %br
       :escaped
         .ex3_nest
@@ -422,7 +462,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #a36629 //Medium pink
+          background-color: #e4819b //Medium pink
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -430,7 +470,7 @@
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          background-color: #664019 //Dark pink
+          background-color: #d22d59 //Dark pink
   .ex3_row
     .ex3_col
       .ex3_nest_row
@@ -520,7 +560,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #2966a3 //Dark grey
+          background-color: #999999 //Dark gray
       %br
       :escaped
         .ex4_col_small
@@ -531,7 +571,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #a36629 //Medium pink
+          background-color: #e4819b //Medium pink
       %br
       :escaped
         .ex4_col_medium
@@ -542,7 +582,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #ebccad //Light pink
+          background-color: #f2c0cd //Light pink
       %br
       :escaped
         .ex4_col_large
@@ -553,7 +593,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #664019 //Dark pink
+          background-color: #d22d59 //Dark pink
       %br
       :escaped
         .ex4_col_huge
@@ -564,7 +604,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #a36629 //Medium pink
+          background-color: #e4819b //Medium pink
   .ex4_row
     .ex4_col_small
       %h1 1
@@ -624,7 +664,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #2966a3 //Dark grey
+          background-color: #999999 //Dark gray
       %br
       :escaped
         .ex5_col-6_push-3
@@ -633,7 +673,7 @@
         +column(12, 6, 5%, 1%, 3, 0)
       %br
       = precede '&nbsp;' * 2 do
-        background-color: #a36629 //Medium pink
+        background-color: #e4819b //Medium pink
       %br
       :escaped
         .ex5_col-1
@@ -647,7 +687,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #ebccad //Light pink
+          background-color: #f2c0cd //Light pink
   .ex5_row
     .ex5_col-6_push-3
       %h1 This is in the center of the page
@@ -655,9 +695,6 @@
     - (1..12).each do
       .ex5_col-1
         %h2 Col
-  .writeup
-    %h2.discussion Why isn't there an air-gap here?
-    %p.discussion You will notice that the element was not actually floated. The consequence of this is that the rows are not forced apart.
     %h1.discussion Example 6 - Borders and element internal padding
     %p.discussion This case handles all the advanced options available. Some of the elements have borders, others have internal padding. Both cases require %box to keep the math right.
     %code.example
@@ -727,7 +764,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #2966a3 //Dark grey
+          background-color: #999999 //Dark gray
       %br
       :escaped
         .ex6_col-2
@@ -746,7 +783,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          border: solid 2px #664019 //Dark pink
+          border: solid 2px #d22d59 //Dark pink
       %br
       :escaped
         .ex6_col-3_push-2
@@ -765,7 +802,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #a36629 //Medium pink
+          background-color: #e4819b //Medium pink
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -788,11 +825,11 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #ebccad //Light pink
+          background-color: #f2c0cd //Light pink
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          border: solid 5px #664019 //Dark pink
+          border: solid 5px #d22d59 //Dark pink
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -807,7 +844,7 @@
       %br
       = precede '&nbsp;' * 2 do
         :escaped
-          background-color: #ebccad //Light pink
+          background-color: #f2c0cd //Light pink
       %br
       = precede '&nbsp;' * 2 do
         :escaped

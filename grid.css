@@ -14,7 +14,8 @@ body {
   width: 100%; }
 
 .writeup {
-  display: inline-block;
+  display: block;
+  float: left;
   margin-left: 0;
   width: 85%;
   padding-left: 7.5%;
@@ -41,7 +42,8 @@ code.example {
   margin-bottom: 1em; }
 
 .ex1_row {
-  display: inline-block;
+  display: block;
+  float: left;
   margin-left: 0;
   width: 100%;
   padding-left: 0%;
@@ -58,7 +60,8 @@ code.example {
     background-color: #e4819b; }
 
 .ex2_row {
-  display: inline-block;
+  display: block;
+  float: left;
   margin-left: 0;
   width: 100%;
   padding-left: 0%;
@@ -75,7 +78,8 @@ code.example {
     background-color: #e4819b; }
 
 .ex2-1_row {
-  display: inline-block;
+  display: block;
+  float: left;
   margin-left: 0;
   width: 100%;
   padding-left: 0%;
@@ -88,7 +92,8 @@ code.example {
     width: 90%; }
 
 .ex3_row {
-  display: inline-block;
+  display: block;
+  float: left;
   margin-left: 0;
   width: 88%;
   padding-left: 6%;
@@ -111,7 +116,8 @@ code.example {
     background-color: #e4819b; }
 
 .ex3_nest_row {
-  display: inline-block;
+  display: block;
+  float: left;
   margin-left: 0;
   width: 85%;
   padding-left: 7.5%;
@@ -128,7 +134,8 @@ code.example {
     background-color: #d22d59; }
 
 .ex4_row {
-  display: inline-block;
+  display: block;
+  float: left;
   margin-left: 0;
   width: 100%;
   padding-left: 0%;
@@ -164,7 +171,8 @@ code.example {
   background-color: #f2c0cd; }
 
 .ex5_row {
-  display: inline-block;
+  display: block;
+  float: left;
   margin-left: 0;
   width: 91%;
   padding-left: 4.5%;
@@ -186,7 +194,8 @@ code.example {
   background-color: #e4819b; }
 
 .ex6_row {
-  display: inline-block;
+  display: block;
+  float: left;
   margin-left: 0;
   width: 95%;
   padding-left: 2.5%;
