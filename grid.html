@@ -191,26 +191,6 @@
     </div>
   </div>
   <div class='writeup'>
-    <h2 class='discussion'>What's that 4px air gap between those rows?</h2>
-    <p class='discussion'>It has to do with the rows being display: inline-block with floated content within them. This gap is not actually 4px, it is actually 1 character width (in the parent container's font-size). There are a couple fixes for this, depending on your design needs. If you can specify the font size of every single text element you will use, you can set:</p>
-    <code class='example'><h2>grid.sass</h2>
-    <br>
-    html
-    <br>
-    &nbsp;&nbsp;font-size: 0    <br>
-    h1
-    <br>
-    &nbsp;&nbsp;font-size: 22px    <br>
-    h2
-    <br>
-    &nbsp;&nbsp;font-size: 18px    <br>
-    // And so on</code>
-    <p class='discussion'>If you would rather use the scalpel in lieu of the sledgehammer, you can apply the following to the offending rows:</p>
-    <code class='example'><h2>grid.sass</h2>
-    <br>
-    .ex2_row
-    <br>
-    &nbsp;&nbsp;margin-bottom: -4px</code>
     <h1 class='discussion'>Example 3 - nesting columns inside other columns</h1>
     <code class='example'><h2>grid.haml</h2>
     .ex3_row
@@ -434,8 +414,6 @@
     </div>
   </div>
   <div class='writeup'>
-    <h2 class='discussion'>Why isn't there an air-gap here?</h2>
-    <p class='discussion'>You will notice that the element was not actually floated. The consequence of this is that the rows are not forced apart.</p>
     <h1 class='discussion'>Example 6 - Borders and element internal padding</h1>
     <p class='discussion'>This case handles all the advanced options available. Some of the elements have borders, others have internal padding. Both cases require %box to keep the math right.</p>
     <code class='example'><h2>grid.haml</h2>
