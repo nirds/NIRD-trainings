@@ -331,7 +331,7 @@
       %br
       = precede '&nbsp;' * 4 do
         :escaped
-          %h1 Second column
+          %h1 First column
       %br
       = precede '&nbsp;' * 2 do
         :escaped
@@ -637,6 +637,10 @@
       %br
       %br
       :escaped
+        //Reference columns
+      %br
+      %br
+      :escaped
         .ex5_row
       %br
       = precede '&nbsp;' * 2 do
@@ -676,12 +680,13 @@
       = precede '&nbsp;' * 2 do
         background-color: #e4819b //Medium pink
       %br
-      :escaped
-        .ex5_col-1
-      %br
       %br
       :escaped
         //Reference columns
+      %br
+      %br
+      :escaped
+        .ex5_col-1
       %br
       = precede '&nbsp;' * 2 do
         +column(12, 1, 5%, 1%)
@@ -698,7 +703,7 @@
         %h2 Col
   .writeup
     %h1.discussion Example 6 - Borders and element internal padding
-    %p.discussion This case handles all the advanced options available. Some of the elements have borders, others have internal padding. Both cases require %box to keep the math right.
+    %p.discussion This case handles all the advanced options available. Some of the elements have borders, others have internal padding. Some are pushed, and the one on the right is even floated right. It is important that you extend the %box placeholder to set the box model to calculate the border thickness as part of the element width. This is because most browsers default to accounting for border thickness outside the element, like margin is. Allowing them to do so badly breaks the layout.
     %code.example
       %h2 grid.haml
       :escaped
